@@ -1,0 +1,20 @@
+{
+  "name": "work-agents",
+  "description": "Employer-agnostic communication and review workflows for work repositories.",
+  "owner": {
+    "name": "Tommy Seery"
+  },
+  "plugins": [
+    {
+      "name": "work",
+      "source": "./plugins/work",
+      "description": "Employer-agnostic communication and review workflows for work repositories.",
+      "category": "productivity",
+      "keywords": [
+        "work",
+        "communication",
+        "review"
+      ]
+    }
+  ]
+}

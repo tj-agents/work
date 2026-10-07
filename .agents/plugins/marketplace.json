@@ -1,0 +1,20 @@
+{
+  "name": "work-agents",
+  "interface": {
+    "displayName": "Work repositories"
+  },
+  "plugins": [
+    {
+      "name": "work",
+      "source": {
+        "source": "local",
+        "path": "./plugins/work"
+      },
+      "policy": {
+        "installation": "INSTALLED_BY_DEFAULT",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "productivity"
+    }
+  ]
+}

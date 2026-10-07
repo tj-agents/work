@@ -1,0 +1,13 @@
+{
+  "schema_version": 3,
+  "tier": "work",
+  "stack": "work repositories",
+  "applies": "stack-present",
+  "owner_repository": [
+    "tj-agents/work"
+  ],
+  "detect": {
+    "fact": "employer"
+  },
+  "session_context": "Before drafting a human message, even inside another answer, load the matching work:ask-* skill and clip the draft."
+}

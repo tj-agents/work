@@ -1,0 +1,13 @@
+{
+  "payloads": {
+    "work": [
+      "work"
+    ]
+  },
+  "dependencies": {
+    "work": [
+      "base-agents/base",
+      "base-agents/machine"
+    ]
+  }
+}
