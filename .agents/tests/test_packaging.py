@@ -44,7 +44,7 @@ class PackagingTests(unittest.TestCase):
         script = "${PLUGIN_ROOT}/skills/draft-comment/scripts/post_pending_review.py"
         self.assertEqual(
             permissions["claude_allow"],
-            [f"Bash(python -B {script})", f"PowerShell(python -B {script})"],
+            [f"Bash(python -B {script}:*)", f"PowerShell(python -B {script}:*)"],
         )
         self.assertEqual(len(permissions["codex_prefix_rules"]), 1)
         grant = permissions["codex_prefix_rules"][0]

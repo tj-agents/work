@@ -23,8 +23,8 @@
     "hooks": [],
     "permissions": {
       "claude_allow": [
-        "Bash(python -B ${PLUGIN_ROOT}/skills/draft-comment/scripts/post_pending_review.py)",
-        "PowerShell(python -B ${PLUGIN_ROOT}/skills/draft-comment/scripts/post_pending_review.py)"
+        "Bash(python -B ${PLUGIN_ROOT}/skills/draft-comment/scripts/post_pending_review.py:*)",
+        "PowerShell(python -B ${PLUGIN_ROOT}/skills/draft-comment/scripts/post_pending_review.py:*)"
       ],
       "codex_prefix_rules": [
         {
