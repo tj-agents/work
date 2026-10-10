@@ -25,7 +25,7 @@ Group repeated instances of the same mistake in one comment. Anchor to the line 
 
 ## Handover and posting
 
-Provide each pasteable draft as plain prose. If Tommy needs evidence, put a short explanation separately after it; snippets there may show the actual defect and proposed replacement. Once a finding has been explained, a request for its wording gets the draft alone. Present the consequential findings first and say plainly if nothing blocks.
+Provide each pasteable draft as plain prose. If Tommy needs evidence, put a short explanation separately after it, opening with the PR's current code verbatim in a fenced block under its `file:line`, then the proposed replacement. Once a finding has been explained, a request for its wording gets the draft alone. Present the consequential findings first and say plainly if nothing blocks.
 
 Draft by default; he posts. Posting requires explicit authorization for the exact final wording and destination. Findings may be added only to a pending review and its pending state must be checked. Never submit a review, approve, request changes, or resolve a thread. Before changing an existing pending review, read the live bodies and preserve his edits; do not reconstruct them from stale drafts.
 
