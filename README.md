@@ -1,6 +1,6 @@
 # Work
 
-Employer-agnostic communication and review workflows for work repositories. Authored utility skills live in `.agents/work/utility`; kit generates the Claude and Codex payloads from that source.
+Employer-agnostic communication and review workflows for work repositories. Authored utility skills live in `.agents/work/utility`; Template generates the Claude and Codex payloads from that source.
 
 `work:ask-person`, `work:ask-the-team` and `work:ask-infra` share `work:ask`: load the exact employer context identified at session start, read available recipient context, draft briefly, and verify the copy through `machine:clip`. The team route exhausts requirements evidence before asking; the infrastructure route establishes the relevant capabilities. Chat drafts are never sent without explicit current-message authorization.
 
