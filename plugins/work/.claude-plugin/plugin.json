@@ -7,5 +7,9 @@
   },
   "repository": "https://github.com/tj-agents/work",
   "skills": "./skills/",
-  "keywords": ["work", "communication", "review"]
+  "keywords": [
+    "work",
+    "communication",
+    "review"
+  ]
 }

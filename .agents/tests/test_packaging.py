@@ -52,11 +52,8 @@ class PackagingTests(unittest.TestCase):
             for path in generated:
                 content = path.read_text(encoding="utf-8")
                 name = re.search(r"^name: (.+)$", content, re.MULTILINE).group(1)
-                if output == "plugins/work/skills":
-                    self.assertEqual(content, authored[name], str(path))
-                else:
-                    target = re.search(r"canonical definition\]\(([^)]+)\)", content).group(1)
-                    self.assertEqual((path.parent / target).resolve().read_text(encoding="utf-8"), authored[name])
+                target = re.search(r"canonical definition\]\(([^)]+)\)", content).group(1)
+                self.assertEqual((path.parent / target).resolve().read_text(encoding="utf-8"), authored[name])
 
     def test_payload_contains_no_employer_routes_or_provider_commands(self):
         for path in (ROOT / "plugins/work").rglob("*"):
