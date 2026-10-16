@@ -10,4 +10,4 @@ The ask workflows were restored from recovered skill loads and feedback memories
 
 Install only for work repositories through the employer plugin's repository-local installation procedure. Enable `work-agents/work`, `base-agents/base` and `base-agents/machine` together. Do not enable this plugin at user scope. Its version 3 tier requires the reserved `employer` fact established by employer detection and its harness declares the clipboard dependency.
 
-After authored changes, run `pwsh .agents/sync-generated.ps1`, `pwsh .agents/sync-generated.ps1 -Check`, and `kit:check`. Run `python -B .agents/tests/test_packaging.py` for packaging isolation and dependency checks.
+After authored changes, run `pwsh .agents/sync-generated.ps1`, `pwsh .agents/sync-generated.ps1 -Check`, and `template:check`. Run `python -B .agents/tests/test_packaging.py` for packaging isolation and dependency checks.
