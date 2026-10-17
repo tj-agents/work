@@ -1,6 +1,5 @@
 {
   "name": "work",
-  "version": "0.1.0",
   "description": "Employer-agnostic communication and review workflows for work repositories.",
   "author": {
     "name": "Tommy Seery"
