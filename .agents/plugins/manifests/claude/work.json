@@ -1,11 +1,11 @@
 {
   "name": "work",
   "displayName": "Work repositories",
-  "description": "Employer-agnostic communication and review workflows for work repositories.",
+  "description": "Employer-agnostic communication, review and work-item entry points for work repositories.",
   "author": {
     "name": "Tommy Seery"
   },
   "repository": "https://github.com/tj-agents/work",
   "skills": "./skills/",
-  "keywords": ["work", "communication", "review"]
+  "keywords": ["work", "communication", "review", "work-items"]
 }

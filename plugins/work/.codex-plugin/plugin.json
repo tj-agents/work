@@ -1,6 +1,6 @@
 {
   "name": "work",
-  "description": "Employer-agnostic communication and review workflows for work repositories.",
+  "description": "Employer-agnostic communication, review and work-item entry points for work repositories.",
   "author": {
     "name": "Tommy Seery"
   },
@@ -9,12 +9,13 @@
   "keywords": [
     "work",
     "communication",
-    "review"
+    "review",
+    "work-items"
   ],
   "interface": {
     "displayName": "Work repositories",
-    "shortDescription": "Employer-agnostic communication and review workflows for work repositories.",
-    "longDescription": "Employer-agnostic communication and review workflows for work repositories.",
+    "shortDescription": "Employer-agnostic communication, review and work-item entry points for work repositories.",
+    "longDescription": "Employer-agnostic communication, review and work-item entry points for work repositories.",
     "developerName": "Tommy Seery",
     "category": "productivity",
     "capabilities": [],

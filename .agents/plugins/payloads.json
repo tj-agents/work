@@ -7,7 +7,9 @@
   "dependencies": {
     "work": [
       "base-agents/base",
-      "base-agents/machine"
+      "base-agents/machine",
+      "base-agents/engineering",
+      "work-items-agents/work-items"
     ]
   }
 }

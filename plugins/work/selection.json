@@ -2,21 +2,131 @@
   "plugin": "work",
   "dependencies": [
     "base-agents/base",
-    "base-agents/machine"
+    "base-agents/machine",
+    "base-agents/engineering",
+    "work-items-agents/work-items"
   ],
   "profiles": {
     "core": [
+      "address-bug",
+      "address-debt",
+      "address-feature",
+      "address-mistake",
+      "address-task",
+      "address-work-item",
       "ask",
       "ask-infra",
       "ask-person",
       "ask-the-team",
+      "bug",
+      "debt",
       "draft-comment",
       "explaining-code",
-      "respond-comments"
+      "feature",
+      "mistake",
+      "respond-comments",
+      "task",
+      "work-item"
     ]
   },
   "compatibilitySkillAliases": {},
   "skills": [
+    {
+      "name": "address-bug",
+      "kind": "workflow",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "employer context",
+        "engineering",
+        "work-items"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
+    {
+      "name": "address-debt",
+      "kind": "workflow",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "employer context",
+        "engineering",
+        "work-items"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
+    {
+      "name": "address-feature",
+      "kind": "workflow",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "employer context",
+        "engineering",
+        "work-items"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
+    {
+      "name": "address-mistake",
+      "kind": "workflow",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "employer context",
+        "engineering",
+        "work-items"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
+    {
+      "name": "address-task",
+      "kind": "workflow",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "employer context",
+        "engineering",
+        "work-items"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
+    {
+      "name": "address-work-item",
+      "kind": "workflow",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "employer context",
+        "engineering",
+        "work-items"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
     {
       "name": "ask",
       "kind": "utility",
@@ -78,6 +188,38 @@
       ]
     },
     {
+      "name": "bug",
+      "kind": "utility",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "employer context",
+        "engineering",
+        "work-items"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
+    {
+      "name": "debt",
+      "kind": "utility",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "employer context",
+        "engineering",
+        "work-items"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
+    {
       "name": "draft-comment",
       "kind": "utility",
       "profile": "core",
@@ -108,6 +250,38 @@
       ]
     },
     {
+      "name": "feature",
+      "kind": "utility",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "employer context",
+        "engineering",
+        "work-items"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
+    {
+      "name": "mistake",
+      "kind": "utility",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "employer context",
+        "engineering",
+        "work-items"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
+    {
       "name": "respond-comments",
       "kind": "utility",
       "profile": "core",
@@ -117,6 +291,38 @@
       "requires": [
         "employer context",
         "available connectors"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
+    {
+      "name": "task",
+      "kind": "utility",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "employer context",
+        "engineering",
+        "work-items"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
+    {
+      "name": "work-item",
+      "kind": "utility",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "employer context",
+        "engineering",
+        "work-items"
       ],
       "provenance": [
         "house"

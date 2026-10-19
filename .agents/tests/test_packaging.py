@@ -8,8 +8,21 @@ ROOT = Path(__file__).resolve().parents[2]
 EXPECTED_SKILLS = {
     "ask", "ask-person", "ask-the-team", "ask-infra",
     "draft-comment", "respond-comments", "explaining-code",
+    "work-item", "bug", "debt", "mistake", "feature", "task",
+    "address-work-item", "address-bug", "address-debt", "address-mistake",
+    "address-feature", "address-task",
 }
-DEPENDENCIES = {"base-agents/base", "base-agents/machine"}
+DEPENDENCIES = {
+    "base-agents/base",
+    "base-agents/machine",
+    "base-agents/engineering",
+    "work-items-agents/work-items",
+}
+
+ENGINEERING_SKILLS = {
+    "write-bug", "write-debt", "write-mistake", "write-feature", "write-task", "write-issue",
+    "address-bug", "address-debt", "address-mistake", "feature", "plan-execution",
+}
 
 
 def load(relative):
@@ -28,22 +41,30 @@ class PackagingTests(unittest.TestCase):
             self.assertNotIn("hooks", manifest)
         self.assertFalse((ROOT / ".agents/hooks").exists())
 
-    def test_clipboard_dependency_is_in_both_install_contracts(self):
+    def test_shared_dependencies_are_in_both_install_contracts(self):
         selection = load("plugins/work/selection.json")
         self.assertEqual(set(selection["dependencies"]), DEPENDENCIES)
         harness = load("plugins/work/harness.json")
         self.assertEqual(harness["plugin"], "work-agents/work")
         self.assertEqual(set(harness["requires"]["plugins"]), DEPENDENCIES | {"work-agents/work"})
         marketplaces = {item["id"]: item["repository"] for item in harness["requires"]["marketplaces"]}
-        self.assertEqual(marketplaces, {"work-agents": "tj-agents/work", "base-agents": "tj-agents/core"})
+        self.assertEqual(
+            marketplaces,
+            {
+                "work-agents": "tj-agents/work",
+                "base-agents": "tj-agents/core",
+                "work-items-agents": "tj-agents/work-items",
+            },
+        )
         self.assertEqual(harness["requires"]["hooks"], [])
 
     def test_all_hosts_ship_the_same_complete_skill_family(self):
         authored = {}
-        source = ROOT / ".agents/work/utility"
+        source = ROOT / ".agents/work"
         for path in source.rglob("SKILL.md"):
-            name = "-".join(path.parent.relative_to(source).parts)
-            authored[name] = path.read_text(encoding="utf-8")
+            content = path.read_text(encoding="utf-8")
+            name = re.search(r"^name: (.+)$", content, re.MULTILINE).group(1)
+            authored[name] = content
         self.assertEqual(set(authored), EXPECTED_SKILLS)
         for output in ("plugins/work/skills", ".claude/skills", ".codex/skills"):
             directory = ROOT / output
@@ -70,6 +91,12 @@ class PackagingTests(unittest.TestCase):
             for namespace, name in references:
                 if namespace == "work":
                     self.assertIn(name, EXPECTED_SKILLS, str(path))
+                elif namespace == "engineering":
+                    self.assertIn(name, ENGINEERING_SKILLS, str(path))
+                    self.assertIn("base-agents/engineering", load("plugins/work/selection.json")["dependencies"])
+                elif namespace == "work-items":
+                    self.assertEqual(name, "manage", str(path))
+                    self.assertIn("work-items-agents/work-items", load("plugins/work/selection.json")["dependencies"])
                 else:
                     self.assertEqual((namespace, name), ("machine", "clip"), str(path))
                     self.assertIn("base-agents/machine", load("plugins/work/selection.json")["dependencies"])
