@@ -11,9 +11,9 @@
       "address-bug",
       "address-debt",
       "address-feature",
+      "address-item",
       "address-mistake",
       "address-task",
-      "address-work-item",
       "ask",
       "ask-infra",
       "ask-person",
@@ -23,17 +23,17 @@
       "draft-comment",
       "explaining-code",
       "feature",
+      "item",
       "mistake",
       "respond-comments",
-      "task",
-      "work-item"
+      "task"
     ]
   },
   "compatibilitySkillAliases": {},
   "skills": [
     {
       "name": "address-bug",
-      "kind": "workflow",
+      "kind": "utility",
       "profile": "core",
       "applicability": [
         "work repositories"
@@ -49,7 +49,7 @@
     },
     {
       "name": "address-debt",
-      "kind": "workflow",
+      "kind": "utility",
       "profile": "core",
       "applicability": [
         "work repositories"
@@ -65,7 +65,23 @@
     },
     {
       "name": "address-feature",
-      "kind": "workflow",
+      "kind": "utility",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "employer context",
+        "engineering",
+        "work-items"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
+    {
+      "name": "address-item",
+      "kind": "utility",
       "profile": "core",
       "applicability": [
         "work repositories"
@@ -81,7 +97,7 @@
     },
     {
       "name": "address-mistake",
-      "kind": "workflow",
+      "kind": "utility",
       "profile": "core",
       "applicability": [
         "work repositories"
@@ -97,23 +113,7 @@
     },
     {
       "name": "address-task",
-      "kind": "workflow",
-      "profile": "core",
-      "applicability": [
-        "work repositories"
-      ],
-      "requires": [
-        "employer context",
-        "engineering",
-        "work-items"
-      ],
-      "provenance": [
-        "house"
-      ]
-    },
-    {
-      "name": "address-work-item",
-      "kind": "workflow",
+      "kind": "utility",
       "profile": "core",
       "applicability": [
         "work repositories"
@@ -266,6 +266,22 @@
       ]
     },
     {
+      "name": "item",
+      "kind": "utility",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "employer context",
+        "engineering",
+        "work-items"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
+    {
       "name": "mistake",
       "kind": "utility",
       "profile": "core",
@@ -298,22 +314,6 @@
     },
     {
       "name": "task",
-      "kind": "utility",
-      "profile": "core",
-      "applicability": [
-        "work repositories"
-      ],
-      "requires": [
-        "employer context",
-        "engineering",
-        "work-items"
-      ],
-      "provenance": [
-        "house"
-      ]
-    },
-    {
-      "name": "work-item",
       "kind": "utility",
       "profile": "core",
       "applicability": [

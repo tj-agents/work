@@ -11,9 +11,15 @@ provenance: house
 
 # Record a work mistake
 
-Load `work:work-item`, then load `engineering:write-mistake` and fix the kind to `mistake`. Use the
+Load `work:item`, then load `work-items:write-mistake` and fix the kind to `mistake`. Use the
 selected Recording operation only when the employer context explicitly supports that kind. Preserve the
 canonical identity, observation, evidence, cause status, prevention rule and existing correction owner.
 
 Record only. An explicit request to reconcile an existing mistake belongs to `work:address-mistake`.
 Missing facts, context or mapping leave the request pending; do not invent facts or use another backend.
+
+```text
+Input: an observed process error needs recording, but the employer mapping marks mistake unsupported.
+Action: retain the unsent facts and name employer context as resolver.
+Result: no Bug, Task or personal item is substituted.
+```

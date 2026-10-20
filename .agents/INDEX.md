@@ -4,6 +4,12 @@ Generated from `.agents/<plugin>/<kind>/<family>/<member>/SKILL.md`; a skill's n
 
 ## work
 
+- `address-bug` — utility — core — `.agents/work/utility/address/bug/SKILL.md`
+- `address-debt` — utility — core — `.agents/work/utility/address/debt/SKILL.md`
+- `address-feature` — utility — core — `.agents/work/utility/address/feature/SKILL.md`
+- `address-item` — utility — core — `.agents/work/utility/address/item/SKILL.md`
+- `address-mistake` — utility — core — `.agents/work/utility/address/mistake/SKILL.md`
+- `address-task` — utility — core — `.agents/work/utility/address/task/SKILL.md`
 - `ask` — utility — core — `.agents/work/utility/ask/SKILL.md`
 - `ask-infra` — utility — core — `.agents/work/utility/ask/infra/SKILL.md`
 - `ask-person` — utility — core — `.agents/work/utility/ask/person/SKILL.md`
@@ -13,13 +19,7 @@ Generated from `.agents/<plugin>/<kind>/<family>/<member>/SKILL.md`; a skill's n
 - `draft-comment` — utility — core — `.agents/work/utility/draft-comment/SKILL.md`
 - `explaining-code` — utility — core — `.agents/work/utility/explaining-code/SKILL.md`
 - `feature` — utility — core — `.agents/work/utility/feature/SKILL.md`
+- `item` — utility — core — `.agents/work/utility/item/SKILL.md`
 - `mistake` — utility — core — `.agents/work/utility/mistake/SKILL.md`
 - `respond-comments` — utility — core — `.agents/work/utility/respond-comments/SKILL.md`
 - `task` — utility — core — `.agents/work/utility/task/SKILL.md`
-- `work-item` — utility — core — `.agents/work/utility/work-item/SKILL.md`
-- `address-bug` — workflow — core — `.agents/work/workflow/address/bug/SKILL.md`
-- `address-debt` — workflow — core — `.agents/work/workflow/address/debt/SKILL.md`
-- `address-feature` — workflow — core — `.agents/work/workflow/address/feature/SKILL.md`
-- `address-mistake` — workflow — core — `.agents/work/workflow/address/mistake/SKILL.md`
-- `address-task` — workflow — core — `.agents/work/workflow/address/task/SKILL.md`
-- `address-work-item` — workflow — core — `.agents/work/workflow/address/work-item/SKILL.md`

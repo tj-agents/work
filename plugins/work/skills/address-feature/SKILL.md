@@ -1,7 +1,7 @@
 ---
 name: address-feature
 description: Address an existing work feature through the selected employer work-item operation. Use when explicitly asked to implement an identified work feature.
-kind: workflow
+kind: utility
 domain: work
 profile: core
 applicability: work repositories
@@ -11,5 +11,5 @@ provenance: house
 
 # Address a work feature
 
-Read and follow the [canonical definition](../../.agents/work/workflow/address/feature/SKILL.md) in full.
+Read and follow the [canonical definition](../../.agents/work/utility/address/feature/SKILL.md) in full.
 This discovery entry is generated; edit the referenced `.agents/` definition.

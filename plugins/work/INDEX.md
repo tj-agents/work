@@ -1,5 +1,11 @@
 # work package capabilities
 
+- `address-bug` — utility — core
+- `address-debt` — utility — core
+- `address-feature` — utility — core
+- `address-item` — utility — core
+- `address-mistake` — utility — core
+- `address-task` — utility — core
 - `ask` — utility — core
 - `ask-infra` — utility — core
 - `ask-person` — utility — core
@@ -9,13 +15,7 @@
 - `draft-comment` — utility — core
 - `explaining-code` — utility — core
 - `feature` — utility — core
+- `item` — utility — core
 - `mistake` — utility — core
 - `respond-comments` — utility — core
 - `task` — utility — core
-- `work-item` — utility — core
-- `address-bug` — workflow — core
-- `address-debt` — workflow — core
-- `address-feature` — workflow — core
-- `address-mistake` — workflow — core
-- `address-task` — workflow — core
-- `address-work-item` — workflow — core

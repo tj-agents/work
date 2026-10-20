@@ -1,7 +1,7 @@
 ---
 name: address-debt
 description: Address existing technical debt through the selected employer work-item operation. Use when explicitly asked to resolve identified work debt.
-kind: workflow
+kind: utility
 domain: work
 profile: core
 applicability: work repositories
@@ -11,5 +11,5 @@ provenance: house
 
 # Address work debt
 
-Read and follow the [canonical definition](../../.agents/work/workflow/address/debt/SKILL.md) in full.
+Read and follow the [canonical definition](../../.agents/work/utility/address/debt/SKILL.md) in full.
 This discovery entry is generated; edit the referenced `.agents/` definition.

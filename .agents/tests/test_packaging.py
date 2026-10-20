@@ -8,8 +8,8 @@ ROOT = Path(__file__).resolve().parents[2]
 EXPECTED_SKILLS = {
     "ask", "ask-person", "ask-the-team", "ask-infra",
     "draft-comment", "respond-comments", "explaining-code",
-    "work-item", "bug", "debt", "mistake", "feature", "task",
-    "address-work-item", "address-bug", "address-debt", "address-mistake",
+    "item", "bug", "debt", "mistake", "feature", "task",
+    "address-item", "address-bug", "address-debt", "address-mistake",
     "address-feature", "address-task",
 }
 DEPENDENCIES = {
@@ -20,8 +20,11 @@ DEPENDENCIES = {
 }
 
 ENGINEERING_SKILLS = {
-    "write-bug", "write-debt", "write-mistake", "write-feature", "write-task", "write-issue",
     "address-bug", "address-debt", "address-mistake", "feature", "plan-execution",
+}
+
+WORK_ITEM_SKILLS = {
+    "manage", "write-bug", "write-debt", "write-mistake", "write-feature", "write-task", "write-issue",
 }
 
 
@@ -95,7 +98,7 @@ class PackagingTests(unittest.TestCase):
                     self.assertIn(name, ENGINEERING_SKILLS, str(path))
                     self.assertIn("base-agents/engineering", load("plugins/work/selection.json")["dependencies"])
                 elif namespace == "work-items":
-                    self.assertEqual(name, "manage", str(path))
+                    self.assertIn(name, WORK_ITEM_SKILLS, str(path))
                     self.assertIn("work-items-agents/work-items", load("plugins/work/selection.json")["dependencies"])
                 else:
                     self.assertEqual((namespace, name), ("machine", "clip"), str(path))

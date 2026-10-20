@@ -7,9 +7,9 @@ skills live in `.agents/work`; Template generates the Claude and Codex payloads 
 
 `work:draft-comment`, `work:respond-comments` and `work:explaining-code` provide review and explanation workflows. Pasteable review drafts are plain prose. Explanations never annotate source code.
 
-`work:work-item` is the shared employer-neutral work-item boundary. `work:bug`, `work:debt`,
+`work:item` is the shared employer-neutral work-item boundary. `work:bug`, `work:debt`,
 `work:mistake`, `work:feature` and `work:task` record an already-known kind without starting work.
-`work:address-work-item` and its typed address workflows reconcile a persisted item before entering its
+`work:address-item` and its typed address workflows reconcile a persisted item before entering its
 shared engineering lifecycle. They load the exact employer context selected at session start. That context
 supplies the explicit recording and addressing operations plus supported-kind mapping; Work never guesses
 an employer, backend or kind mapping. `work-items:manage` supplies shared neutral schema and provider
