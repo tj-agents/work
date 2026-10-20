@@ -82,10 +82,13 @@ class RenderMermaidTests(unittest.TestCase):
         self.assertEqual(entry["body"], 'flowchart LR\r\n  a["it\'s A & B"] --> b')
         self.assertGreater(entry["date"], 1)
 
-    def test_only_a_placeholder_on_its_own_line_is_replaced(self):
-        self.diagram("Decision", "flowchart LR\n  a --> b")
+    def test_only_a_placeholder_on_its_own_line_is_replaced_and_others_fail(self):
         existing = "<p>A{{Decision}} stays text</p>"
         self.assertEqual(self.render(existing), existing)
+        self.diagram("D1", "flowchart LR\n  a --> b")
+        self.assertEqual(len(parse(self.render("<p>x</p>\r\n{{D1}}\r\n"))), 1)
+        with self.assertRaisesRegex(SystemExit, "own line: D1"):
+            self.render("<p>{{D1}}</p>")
 
     def test_plain_string_body_is_replaced_with_the_source(self):
         self.diagram("D1", "flowchart TD\n  x --> y\n")
@@ -96,6 +99,11 @@ class RenderMermaidTests(unittest.TestCase):
         self.diagram("D1", "flowchart TD\n  x --> y")
         with self.assertRaisesRegex(SystemExit, "unrecognised"):
             self.render("{{D1}}", sample_element(json.dumps({"body": "old"})))
+        [element] = parse(self.render("{{D1}}", sample_element(json.dumps([{"body": "a"}, {"body": "b"}]))))
+        self.assertEqual(json.loads(params_of(element)["macroParams"]["__bodyContent"]["value"]),
+                         [{"body": "flowchart TD\r\n  x --> y"}])
+        [element] = parse(self.render("{{D1}}", sample_element("null")))
+        self.assertEqual(params_of(element)["macroParams"]["__bodyContent"]["value"], "flowchart TD\n  x --> y")
 
     def test_every_macro_gets_a_fresh_id_and_drops_instance_ids(self):
         self.diagram("D1", "flowchart LR\n  a --> b")

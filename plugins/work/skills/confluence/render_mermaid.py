@@ -8,7 +8,8 @@ import time
 import uuid
 from pathlib import Path
 
-PLACEHOLDER = re.compile(r"^([ \t]*)\{\{([\w.-]+)\}\}[ \t]*$", re.MULTILINE)
+PLACEHOLDER = re.compile(r"^([ \t]*)\{\{([\w.-]+)\}\}[ \t]*\r?$", re.MULTILINE)
+ANY_PLACEHOLDER = re.compile(r"\{\{([\w.-]+)\}\}")
 INSTANCE_ATTRIBUTES = {"id", "data-local-id"}
 
 
@@ -43,7 +44,9 @@ def new_body(value, source: str) -> str:
         entries = json.loads(value)
     except (TypeError, ValueError):
         return source
-    if isinstance(entries, list) and len(entries) == 1 and isinstance(entries[0], dict) and "body" in entries[0]:
+    if not isinstance(entries, (list, dict)):
+        return source
+    if isinstance(entries, list) and entries and isinstance(entries[0], dict) and "body" in entries[0]:
         entry = dict(entries[0], body=source.replace("\n", "\r\n"))
         if "date" in entry:
             entry["date"] = int(time.time() * 1000)
@@ -55,7 +58,9 @@ def macro(sample: dict, source: str) -> str:
     params = copy.deepcopy(sample["params"])
     body = params["macroParams"]["__bodyContent"]
     body["value"] = new_body(body.get("value"), source)
-    params.setdefault("macroMetadata", {})["macroId"] = {"value": str(uuid.uuid4())}
+    if not isinstance(params.get("macroMetadata"), dict):
+        params["macroMetadata"] = {}
+    params["macroMetadata"]["macroId"] = {"value": str(uuid.uuid4())}
     attributes = {name: value for name, value in sample["attributes"].items() if name not in INSTANCE_ATTRIBUTES}
     attributes["data-parameters"] = json.dumps(params, ensure_ascii=False)
     rendered = " ".join(name if value is None else f'{name}="{html.escape(value, quote=True)}"'
@@ -69,7 +74,11 @@ def render(text: str, sample: dict, diagrams: Path) -> str:
         if not path.is_file():
             raise SystemExit(f"{{{{{match.group(2)}}}}}: no diagram at {path}")
         return match.group(1) + macro(sample, path.read_text(encoding="utf-8-sig").rstrip())
-    return PLACEHOLDER.sub(replace, text)
+    rendered = PLACEHOLDER.sub(replace, text)
+    stranded = sorted({name for name in ANY_PLACEHOLDER.findall(rendered) if (diagrams / f"{name}.mmd").is_file()})
+    if stranded:
+        raise SystemExit(f"put each placeholder on its own line: {', '.join(stranded)}")
+    return rendered
 
 
 def main(argv=None) -> None:
