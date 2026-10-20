@@ -49,19 +49,54 @@ class PostPendingReviewTests(unittest.TestCase):
         with mock.patch.object(
             self.module,
             "gh_json",
-            side_effect=[[], {"id": 42, "html_url": "https://example.test/review", "state": "COMMENTED"}],
+            side_effect=[
+                [],
+                {"id": 42, "html_url": "https://example.test/review", "state": "COMMENTED"},
+            ],
         ):
             status, _, stderr = self.run_main()
         self.assertEqual(1, status)
         self.assertIn("did not create a PENDING review", stderr)
+        self.assertIn("id=42", stderr)
+        self.assertIn("https://example.test/review", stderr)
 
     def test_refuses_to_add_to_an_existing_pending_review(self):
         self.write_payload({"body": "Finding"})
-        with mock.patch.object(self.module, "gh_json", return_value=[{"state": "PENDING"}]) as gh_json:
+        with mock.patch.object(self.module, "gh_json", return_value=[[{"state": "PENDING"}]]) as gh_json:
             status, _, stderr = self.run_main()
         self.assertEqual(1, status)
         self.assertIn("pending review already exists", stderr)
         gh_json.assert_called_once()
+
+    def test_posts_the_validated_payload_through_stdin(self):
+        self.write_payload({"body": "Finding"})
+        with mock.patch.object(
+            self.module,
+            "gh_json",
+            side_effect=[[], {"id": 42, "html_url": "https://example.test/review", "state": "PENDING"}],
+        ) as gh_json:
+            self.run_main()
+        post_call = gh_json.call_args_list[1]
+        self.assertEqual(("-X", "POST", "repos/owner/repo/pulls/42/reviews", "--input", "-"), post_call.args)
+        self.assertEqual(json.dumps({"body": "Finding"}), post_call.kwargs["input_text"])
+
+    def test_reviews_flattens_the_real_paginate_slurp_shape(self):
+        self.assertEqual(
+            [{"state": "PENDING"}, {"state": "COMMENTED"}],
+            self.module.reviews([[{"state": "PENDING"}], [{"state": "COMMENTED"}]]),
+        )
+        self.assertEqual([], self.module.reviews([]))
+
+    def test_reviews_rejects_a_flat_list(self):
+        with self.assertRaises(self.module.PendingReviewError):
+            self.module.reviews([{"state": "PENDING"}])
+
+    def test_gh_json_decodes_subprocess_output_as_utf8(self):
+        with mock.patch.object(self.module.subprocess, "run") as run:
+            run.return_value = mock.Mock(returncode=0, stdout="{}", stderr="")
+            self.module.gh_json("repos/owner/repo")
+        self.assertEqual("utf-8", run.call_args.kwargs["encoding"])
+        self.assertEqual("replace", run.call_args.kwargs["errors"])
 
     def test_prints_the_pending_review_id_and_url(self):
         self.write_payload({"body": "Finding"})

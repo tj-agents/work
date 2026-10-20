@@ -44,13 +44,16 @@ def load_payload(path):
     return payload
 
 
-def gh_json(*arguments):
+def gh_json(*arguments, input_text=None):
     try:
         result = subprocess.run(
             ["gh", "api", *arguments],
+            input=input_text,
             capture_output=True,
             check=False,
             text=True,
+            encoding="utf-8",
+            errors="replace",
         )
     except OSError as error:
         raise PendingReviewError(f"cannot run gh api: {error}") from error
@@ -62,23 +65,24 @@ def gh_json(*arguments):
         raise PendingReviewError(f"gh api returned invalid JSON: {error}") from error
 
 
-def reviews(value):
-    if not isinstance(value, list):
+def reviews(pages):
+    if not isinstance(pages, list) or not all(isinstance(page, list) for page in pages):
         raise PendingReviewError("gh api returned an invalid reviews response")
-    if all(isinstance(page, list) for page in value):
-        return [review for page in value for review in page]
-    return value
+    return [review for page in pages for review in page]
 
 
 def post_pending_review(repository, pull_request, payload_path):
-    load_payload(payload_path)
+    payload = load_payload(payload_path)
     endpoint = f"repos/{repository}/pulls/{pull_request}/reviews"
     existing = reviews(gh_json(endpoint, "--paginate", "--slurp"))
     if any(isinstance(review, dict) and review.get("state") == "PENDING" for review in existing):
         raise PendingReviewError("a pending review already exists; refusing to add to or replace it")
-    review = gh_json("-X", "POST", endpoint, "--input", str(payload_path))
+    review = gh_json("-X", "POST", endpoint, "--input", "-", input_text=json.dumps(payload))
     if not isinstance(review, dict) or review.get("state") != "PENDING":
-        raise PendingReviewError("GitHub did not create a PENDING review")
+        review_id = review.get("id") if isinstance(review, dict) else None
+        url = (review.get("html_url") or review.get("url")) if isinstance(review, dict) else None
+        detail = f" (id={review_id}, url={url})" if review_id is not None or url else ""
+        raise PendingReviewError(f"GitHub did not create a PENDING review{detail}")
     review_id = review.get("id")
     url = review.get("html_url") or review.get("url")
     if review_id is None or not isinstance(url, str) or not url:

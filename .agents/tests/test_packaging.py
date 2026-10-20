@@ -41,16 +41,27 @@ class PackagingTests(unittest.TestCase):
     def test_pending_review_helper_has_a_narrow_package_grant(self):
         harness = load("plugins/work/harness.json")
         permissions = harness["requires"]["permissions"]
-        script = "${PLUGIN_ROOT}/skills/draft-comment/scripts/post_pending_review.py"
+        source_script = "${PLUGIN_ROOT}/.agents/work/utility/draft-comment/scripts/post_pending_review.py"
+        packaged_script = "${PLUGIN_ROOT}/skills/draft-comment/scripts/post_pending_review.py"
         self.assertEqual(
             permissions["claude_allow"],
-            [f"Bash(python -B {script}:*)", f"PowerShell(python -B {script}:*)"],
+            [
+                f"Bash(python -B {source_script}:*)",
+                f"PowerShell(python -B {source_script}:*)",
+                f"Bash(python3 -B {source_script}:*)",
+                f"PowerShell(python3 -B {source_script}:*)",
+                f"Bash(python -B {packaged_script}:*)",
+                f"PowerShell(python -B {packaged_script}:*)",
+                f"Bash(python3 -B {packaged_script}:*)",
+                f"PowerShell(python3 -B {packaged_script}:*)",
+            ],
         )
         self.assertEqual(len(permissions["codex_prefix_rules"]), 1)
         grant = permissions["codex_prefix_rules"][0]
-        self.assertEqual(grant["match"], [["python", "-B", script]])
-        self.assertEqual(grant["not_match"], [["python", script]])
-        self.assertEqual(grant["pattern"][1:], ["-B", [script]])
+        self.assertEqual(grant["match"], [["python", "-B", source_script], ["python", "-B", packaged_script]])
+        self.assertEqual(grant["not_match"], [["python", packaged_script]])
+        self.assertEqual(grant["pattern"][1:], ["-B", [source_script, packaged_script]])
+        self.assertTrue((ROOT / "plugins/work/.agents/work/utility/draft-comment/scripts/post_pending_review.py").is_file())
         self.assertTrue((ROOT / "plugins/work/skills/draft-comment/scripts/post_pending_review.py").is_file())
 
     def test_all_hosts_ship_the_same_complete_skill_family(self):
