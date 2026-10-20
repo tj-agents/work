@@ -11,8 +11,7 @@ Change them in Template, then run `template:update` to refresh them.
 `pwsh .agents/sync-generated.ps1` after authored changes and require `pwsh .agents/sync-generated.ps1 -Check`
 before delivery.
 
-Utilities and workflows here are employer-neutral. Their scripts and templates sit beside their
-`SKILL.md`.
+Every skill here is a `utility`. Its scripts and templates sit beside its `SKILL.md`.
 
 <!-- BEGIN personal:current-solution sha256:2e091b5f18f67fb2302024e817c71d4a0f5234c1ca63ca1c9af5c4eef3b6a128 -->
 # Personal projects

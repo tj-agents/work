@@ -7,7 +7,10 @@
   },
   "plugins": [
     "base@tj-agents",
+    "engineering@tj-agents",
     "machine@tj-agents",
-    "personal@tj-agents"
+    "personal@tj-agents",
+    "template@tj-agents",
+    "work-items@tj-agents"
   ]
 }
