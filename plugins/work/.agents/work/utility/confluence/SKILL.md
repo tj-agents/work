@@ -27,7 +27,9 @@ survive a round trip.
 
 | Piece | For |
 | --- | --- |
-| Panel (`panel-info`, `panel-note`, `panel-custom`) | the summary a reader can stop at; a warning |
+| Info panel (`panel-info`) | the summary a reader can stop at |
+| Note panel (`panel-note`) | a caveat or warning |
+| Custom panel (`panel-custom`) | colour-coded boxes, such as two concepts compared |
 | Expand (`<details>`) | detail most readers skip: option tables, glossary, change log |
 | Two-column layout | two concepts side by side |
 | Status lozenge | the state of a risk, option or deliverable |
@@ -39,38 +41,27 @@ Put parallel items in a table, not bullets of prose. Never draw ASCII art or a c
 
 ## Diagrams: the organisation's standard, through the site's macro
 
-Look for the organisation's diagram standard before drawing anything, and follow it. For Mermaid, read a
-page that already shows a Mermaid diagram in `html` and copy its `data-extension-key`,
-`data-extension-type` and `data-parameters` shape.
-
-For the weweave Mermaid macro (`confluence-mermaid-macro`), keep each diagram in a `.mmd` file, put a
-`{{NAME}}` placeholder in the page and render it:
+Look for the organisation's diagram standard before drawing anything, and follow it. For Mermaid, read a page
+that already shows a Mermaid diagram in `html` and save one of its macro elements as `sample.html`. Keep each
+diagram in `diagrams/NAME.mmd` beside the page, put `{{NAME}}` where it goes, and render with this skill's
+script:
 
 ```powershell
-python -B render_mermaid.py page.html out.html [--diagrams DIR]
+python -B <this skill's directory>/render_mermaid.py page.html sample.html out.html
 ```
 
-`DIR` defaults to `diagrams/` beside the page. The script refuses quotes and `&` in a diagram, because they
-break the attribute; write an apostrophe as ’. For another Mermaid app, build its discovered shape by hand
-under the same rules.
-
-Every write gives every Mermaid macro a fresh `macroId` and body `date`. The app caches its drawing by
-`macroId`, so new source under an old id keeps showing the old diagram. The script does both on each run;
-re-render before each write rather than reusing output.
+Each macro copies the sample's shape, with the diagram as its body, a fresh `macroId` and, where the sample
+has one, a fresh `date`. The app caches its drawing by `macroId`, so new source under an old id keeps showing
+the old diagram: re-render before every write and never reuse the output.
 
 ## Colours that work in dark mode
 
 Dark mode lightens default text, so a pastel fill with no text colour is unreadable. Colour nodes only with
 `classDef`, setting `fill`, `stroke` and `color` together, and name classes so they cannot clash with node ids.
-Use a bold fill with white text, or amber with dark text:
+Pair a bold fill with white text, or a bright fill with dark text:
 
 ```text
-classDef blue fill:#0052CC,stroke:#0747A6,color:#FFFFFF
-classDef purple fill:#5243AA,stroke:#403294,color:#FFFFFF
-classDef green fill:#00875A,stroke:#006644,color:#FFFFFF
-classDef slate fill:#505F79,stroke:#344563,color:#FFFFFF
-classDef red fill:#DE350B,stroke:#BF2600,color:#FFFFFF
-classDef amber fill:#FFC400,stroke:#FF991F,color:#172B4D
+classDef done fill:<bold colour>,stroke:<darker shade>,color:<white>
 ```
 
 Never `style X fill:<pastel>` on its own. Leave unstyled nodes to the theme.
