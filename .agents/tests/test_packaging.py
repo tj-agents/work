@@ -7,7 +7,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[2]
 EXPECTED_SKILLS = {
     "ask", "ask-person", "ask-the-team", "ask-infra",
-    "draft-comment", "respond-comments", "explaining-code",
+    "draft-comment", "respond-comments", "explaining-code", "confluence",
     "item", "bug", "debt", "mistake", "feature", "task",
     "address-item", "address-bug", "address-debt", "address-mistake",
     "address-feature", "address-task",

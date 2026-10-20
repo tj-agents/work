@@ -15,6 +15,7 @@ Generated from `.agents/<plugin>/<kind>/<family>/<member>/SKILL.md`; a skill's n
 - `ask-person` — utility — core — `.agents/work/utility/ask/person/SKILL.md`
 - `ask-the-team` — utility — core — `.agents/work/utility/ask/the-team/SKILL.md`
 - `bug` — utility — core — `.agents/work/utility/bug/SKILL.md`
+- `confluence` — utility — core — `.agents/work/utility/confluence/SKILL.md`
 - `debt` — utility — core — `.agents/work/utility/debt/SKILL.md`
 - `draft-comment` — utility — core — `.agents/work/utility/draft-comment/SKILL.md`
 - `explaining-code` — utility — core — `.agents/work/utility/explaining-code/SKILL.md`

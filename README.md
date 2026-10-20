@@ -15,6 +15,8 @@ supplies the explicit recording and addressing operations plus supported-kind ma
 an employer, backend or kind mapping. `work-items:manage` supplies shared neutral schema and provider
 mechanics while the employer retains its process, transport and delivery gates.
 
+`work:confluence` writes Confluence pages as HTML with native pieces and Mermaid diagrams readable in dark mode, and verifies the stored and rendered result. It ships `render_mermaid.py`, which renders `.mmd` sources into the site's own Mermaid macro, copied from an existing page, with a fresh id each run.
+
 The ask workflows were restored from recovered skill loads and feedback memories, then separated from employer-specific routing and provider procedures. Employer plugins supply that context; this repository contains no employer identities or private chat data.
 
 Install only for work repositories through the employer plugin's repository-local installation procedure.

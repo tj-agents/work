@@ -19,6 +19,7 @@
       "ask-person",
       "ask-the-team",
       "bug",
+      "confluence",
       "debt",
       "draft-comment",
       "explaining-code",
@@ -198,6 +199,20 @@
         "employer context",
         "engineering",
         "work-items"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
+    {
+      "name": "confluence",
+      "kind": "utility",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "available connectors"
       ],
       "provenance": [
         "house"
