@@ -25,7 +25,17 @@ Group repeated instances of the same mistake in one comment. Anchor to the line 
 
 ## Handover and posting
 
-Provide each pasteable draft as plain prose. If Tommy needs evidence, put a short explanation separately after it; snippets there may show the actual defect and proposed replacement. Once a finding has been explained, a request for its wording gets the draft alone. Present the consequential findings first and say plainly if nothing blocks.
+Provide each pasteable draft as plain prose. If Tommy needs evidence, put a short explanation separately after it, opening with the reviewed code verbatim in a fenced block under each clickable path and line (the base code for a removal), then the proposed replacement if there is one. Once a finding has been explained, a request for its wording gets the draft alone. Present the consequential findings first and say plainly if nothing blocks.
+
+````text
+Draft: `GetOrder` no longer returns 404 for an unknown id; it throws on `order.Total`. Restore the null guard.
+
+Evidence, src/Orders/OrderService.cs:42 at the base (the PR removed it):
+```csharp
+if (order is null) return NotFound();
+```
+Proposed replacement: put the guard back before `order.Total` is read.
+````
 
 Draft by default; he posts. Posting requires explicit authorization for the exact final wording and destination. Post with `scripts/post_pending_review.py <owner/repo> <pr> <payload.json>`. Findings may be added only to a pending review and its pending state must be checked. Never submit a review, approve, request changes, or resolve a thread. Before changing an existing pending review, read the live bodies and preserve his edits; do not reconstruct them from stale drafts.
 
