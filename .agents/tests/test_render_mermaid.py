@@ -89,6 +89,8 @@ class RenderMermaidTests(unittest.TestCase):
         self.assertEqual(len(parse(self.render("<p>x</p>\r\n{{D1}}\r\n"))), 1)
         with self.assertRaisesRegex(SystemExit, "own line: D1"):
             self.render("<p>{{D1}}</p>")
+        self.diagram("Overview", "flowchart LR\n  a{{D1}} --> b")
+        self.assertEqual(len(parse(self.render("{{Overview}}\n{{D1}}"))), 2)
 
     def test_plain_string_body_is_replaced_with_the_source(self):
         self.diagram("D1", "flowchart TD\n  x --> y\n")

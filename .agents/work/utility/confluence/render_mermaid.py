@@ -74,11 +74,11 @@ def render(text: str, sample: dict, diagrams: Path) -> str:
         if not path.is_file():
             raise SystemExit(f"{{{{{match.group(2)}}}}}: no diagram at {path}")
         return match.group(1) + macro(sample, path.read_text(encoding="utf-8-sig").rstrip())
-    rendered = PLACEHOLDER.sub(replace, text)
-    stranded = sorted({name for name in ANY_PLACEHOLDER.findall(rendered) if (diagrams / f"{name}.mmd").is_file()})
+    inline = ANY_PLACEHOLDER.findall(PLACEHOLDER.sub("", text))
+    stranded = sorted({name for name in inline if (diagrams / f"{name}.mmd").is_file()})
     if stranded:
         raise SystemExit(f"put each placeholder on its own line: {', '.join(stranded)}")
-    return rendered
+    return PLACEHOLDER.sub(replace, text)
 
 
 def main(argv=None) -> None:
