@@ -13,12 +13,12 @@ render_mermaid = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(render_mermaid)
 
 
-def sample_element(body_value):
+def sample_element(body_value, extra=""):
     params = {
         "macroParams": {"theme": {"value": "dark"}, "__bodyContent": {"value": body_value}},
         "macroMetadata": {"macroId": {"value": "old-id"}, "title": "Diagram"},
     }
-    return ('<div data-type="extension" data-extension-key="example-mermaid" '
+    return (f'<div data-type="extension" data-extension-key="example-mermaid" {extra}'
             'data-extension-type="example.type" data-layout="wide" '
             f"data-parameters='{json.dumps(params)}'></div>")
 
@@ -43,6 +43,10 @@ def parse(text):
     return parser.found
 
 
+def params_of(element):
+    return json.loads(element["data-parameters"])
+
+
 class RenderMermaidTests(unittest.TestCase):
     def setUp(self):
         holder = tempfile.TemporaryDirectory()
@@ -62,44 +66,59 @@ class RenderMermaidTests(unittest.TestCase):
         page = self.root / "page.html"
         sample = self.root / "sample.html"
         out = self.root / "out.html"
-        page.write_text("<p>before</p>{{auth-flow}}<p>after</p>", encoding="utf-8")
-        sample.write_text(LIST_SAMPLE, encoding="utf-8")
+        page.write_text("<p>before</p>\n  {{auth-flow}}\n<p>after</p>", encoding="utf-8-sig")
+        sample.write_text("<p>copied with its paragraph</p>" + LIST_SAMPLE, encoding="utf-8-sig")
         render_mermaid.main([str(page), str(sample), str(out)])
-        text = out.read_text(encoding="utf-8")
-        self.assertTrue(text.startswith("<p>before</p>") and text.endswith("<p>after</p>"))
-        [element] = parse(text)
+        lines = out.read_text(encoding="utf-8").split("\n")
+        self.assertEqual((lines[0], lines[2]), ("<p>before</p>", "<p>after</p>"))
+        self.assertTrue(lines[1].startswith("  <div "))
+        [element] = parse(lines[1])
         self.assertEqual((element["data-extension-key"], element["data-extension-type"], element["data-layout"]),
                          ("example-mermaid", "example.type", "wide"))
-        params = json.loads(element["data-parameters"])
+        params = params_of(element)
         self.assertEqual(params["macroParams"]["theme"], {"value": "dark"})
         self.assertNotEqual(params["macroMetadata"]["macroId"]["value"], "old-id")
         [entry] = json.loads(params["macroParams"]["__bodyContent"]["value"])
         self.assertEqual(entry["body"], 'flowchart LR\r\n  a["it\'s A & B"] --> b')
         self.assertGreater(entry["date"], 1)
 
+    def test_only_a_placeholder_on_its_own_line_is_replaced(self):
+        self.diagram("Decision", "flowchart LR\n  a --> b")
+        existing = "<p>A{{Decision}} stays text</p>"
+        self.assertEqual(self.render(existing), existing)
+
     def test_plain_string_body_is_replaced_with_the_source(self):
         self.diagram("D1", "flowchart TD\n  x --> y\n")
         [element] = parse(self.render("{{D1}}", sample_element("old source")))
-        params = json.loads(element["data-parameters"])
-        self.assertEqual(params["macroParams"]["__bodyContent"]["value"], "flowchart TD\n  x --> y")
+        self.assertEqual(params_of(element)["macroParams"]["__bodyContent"]["value"], "flowchart TD\n  x --> y")
 
-    def test_every_macro_gets_a_fresh_id(self):
+    def test_unrecognised_json_body_fails_instead_of_being_overwritten(self):
+        self.diagram("D1", "flowchart TD\n  x --> y")
+        with self.assertRaisesRegex(SystemExit, "unrecognised"):
+            self.render("{{D1}}", sample_element(json.dumps({"body": "old"})))
+
+    def test_every_macro_gets_a_fresh_id_and_drops_instance_ids(self):
         self.diagram("D1", "flowchart LR\n  a --> b")
-        elements = parse(self.render("{{D1}}{{D1}}")) + parse(self.render("{{D1}}"))
-        ids = {json.loads(e["data-parameters"])["macroMetadata"]["macroId"]["value"] for e in elements}
-        self.assertEqual(len(ids), 3)
+        sample = sample_element(json.dumps([{"body": "old"}]), extra='data-local-id="abc" hidden ')
+        elements = parse(self.render("{{D1}}\n{{D1}}", sample)) + parse(self.render("{{D1}}", sample))
+        self.assertEqual(len({params_of(e)["macroMetadata"]["macroId"]["value"] for e in elements}), 3)
+        for element in elements:
+            self.assertNotIn("data-local-id", element)
+            self.assertIn("hidden", element)
 
     def test_byte_order_mark_is_not_part_of_the_source(self):
         self.diagram("D1", "flowchart LR\n  a --> b", encoding="utf-8-sig")
         [element] = parse(self.render("{{D1}}"))
-        [entry] = json.loads(json.loads(element["data-parameters"])["macroParams"]["__bodyContent"]["value"])
+        [entry] = json.loads(params_of(element)["macroParams"]["__bodyContent"]["value"])
         self.assertTrue(entry["body"].startswith("flowchart"))
 
     def test_missing_diagram_and_unusable_sample_name_the_problem(self):
         with self.assertRaisesRegex(SystemExit, r"\{\{nope\}\}"):
             self.render("{{nope}}")
-        with self.assertRaisesRegex(SystemExit, "sample"):
+        with self.assertRaisesRegex(SystemExit, "found 0"):
             render_mermaid.read_sample("<p>no macro here</p>")
+        with self.assertRaisesRegex(SystemExit, "found 2"):
+            render_mermaid.read_sample(LIST_SAMPLE + LIST_SAMPLE)
 
 
 if __name__ == "__main__":

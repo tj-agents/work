@@ -42,9 +42,9 @@ Put parallel items in a table, not bullets of prose. Never draw ASCII art or a c
 ## Diagrams: the organisation's standard, through the site's macro
 
 Look for the organisation's diagram standard before drawing anything, and follow it. For Mermaid, read a page
-that already shows a Mermaid diagram in `html` and save one of its macro elements as `sample.html`. Keep each
-diagram in `diagrams/NAME.mmd` beside the page, put `{{NAME}}` where it goes, and render with this skill's
-script:
+that already shows a Mermaid diagram in `html` and save exactly one of its macro elements as `sample.html`.
+Keep each diagram in `diagrams/NAME.mmd` beside the page, put `{{NAME}}` on its own line where it goes, and
+render with this skill's script:
 
 ```powershell
 python -B <this skill's directory>/render_mermaid.py page.html sample.html out.html
@@ -61,7 +61,7 @@ Dark mode lightens default text, so a pastel fill with no text colour is unreada
 Pair a bold fill with white text, or a bright fill with dark text:
 
 ```text
-classDef done fill:<bold colour>,stroke:<darker shade>,color:<white>
+classDef done fill:<bold fill hex>,stroke:<darker hex>,color:#FFFFFF
 ```
 
 Never `style X fill:<pastel>` on its own. Leave unstyled nodes to the theme.
