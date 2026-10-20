@@ -37,6 +37,6 @@ if (order is null) return NotFound();
 Proposed replacement: put the guard back before `order.Total` is read.
 ````
 
-Draft by default; he posts. Posting requires explicit authorization for the exact final wording and destination. Findings may be added only to a pending review and its pending state must be checked. Never submit a review, approve, request changes, or resolve a thread. Before changing an existing pending review, read the live bodies and preserve his edits; do not reconstruct them from stale drafts.
+Draft by default; he posts. Posting requires explicit authorization for the exact final wording and destination. Post with `python -B "<skill-directory>/scripts/post_pending_review.py" <owner/repo> <pr> <payload.json>`; it only creates a new pending review and verifies GitHub kept it pending. If a pending review already exists, the script refuses; add or edit comments on it directly in the GitHub UI instead. Never submit a review, approve, request changes, or resolve a thread. Before changing an existing pending review, read the live bodies and preserve his edits; do not reconstruct them from stale drafts.
 
 Replies on Tommy's own PR use `work:respond-comments`. Code understanding uses `work:explaining-code`. Human chat drafts, including a message embedded in review analysis, load the matching `work:ask-person`, `work:ask-the-team` or `work:ask-infra` member and use `machine:clip`.
