@@ -39,6 +39,12 @@ survive a round trip.
 
 Put parallel items in a table, not bullets of prose. Never draw ASCII art or a coloured table as a diagram.
 
+## Every reference is a link
+
+A reference a reader could follow is a link, never bare text. "See X", "risk 2" or "Q3" links to that section
+with `<a href="#Heading-text">`, using the heading's exact text with spaces as hyphens. A work item, PR, ticket
+or page links to its URL. Open each URL once to confirm it resolves before writing it.
+
 ## Diagrams: the organisation's standard, through the site's macro
 
 Look for the organisation's diagram standard before drawing anything, and follow it. For Mermaid, read a page
