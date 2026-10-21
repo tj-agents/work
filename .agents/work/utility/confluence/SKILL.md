@@ -45,9 +45,9 @@ A reference a reader could follow is a link, never bare text. "See X", "risk 2" 
 with `<a href="#Heading-text">`, using the heading's exact text with spaces as hyphens. A work item, PR, ticket
 or page links to its URL. Open each URL once to confirm it resolves before writing it.
 
-Section links only work on a published page. A live doc is always an editor: its headings have no ids, and a
-click opens the link toolbar instead of following the link. Before adding section links to a live doc, convert
-it with More actions → Convert to page, unticking "Notify watchers". It can be converted back at any time.
+On a live doc, section links don't jump, because it is always an editor and its headings have no ids. Never
+change a page's type, location or settings to work around this without asking: a live doc is chosen for its
+live editing.
 
 ## Diagrams: the organisation's standard, through the site's macro
 
