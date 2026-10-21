@@ -28,8 +28,52 @@
     ],
     "hooks": [],
     "permissions": {
-      "claude_allow": [],
-      "codex_prefix_rules": []
+      "claude_allow": [
+        "Bash(python -B ${PLUGIN_ROOT}/.agents/work/utility/draft-comment/scripts/post_pending_review.py:*)",
+        "PowerShell(python -B ${PLUGIN_ROOT}/.agents/work/utility/draft-comment/scripts/post_pending_review.py:*)",
+        "Bash(python3 -B ${PLUGIN_ROOT}/.agents/work/utility/draft-comment/scripts/post_pending_review.py:*)",
+        "PowerShell(python3 -B ${PLUGIN_ROOT}/.agents/work/utility/draft-comment/scripts/post_pending_review.py:*)",
+        "Bash(python -B ${PLUGIN_ROOT}/skills/draft-comment/scripts/post_pending_review.py:*)",
+        "PowerShell(python -B ${PLUGIN_ROOT}/skills/draft-comment/scripts/post_pending_review.py:*)",
+        "Bash(python3 -B ${PLUGIN_ROOT}/skills/draft-comment/scripts/post_pending_review.py:*)",
+        "PowerShell(python3 -B ${PLUGIN_ROOT}/skills/draft-comment/scripts/post_pending_review.py:*)"
+      ],
+      "codex_prefix_rules": [
+        {
+          "pattern": [
+            [
+              "python",
+              "python.exe",
+              "python3",
+              "py"
+            ],
+            "-B",
+            [
+              "${PLUGIN_ROOT}/.agents/work/utility/draft-comment/scripts/post_pending_review.py",
+              "${PLUGIN_ROOT}/skills/draft-comment/scripts/post_pending_review.py"
+            ]
+          ],
+          "justification": "draft-comment posts only a pending GitHub review after exact authorization; the helper rejects every submission field, checks for an existing pending review, and verifies the created review remains pending",
+          "match": [
+            [
+              "python",
+              "-B",
+              "${PLUGIN_ROOT}/.agents/work/utility/draft-comment/scripts/post_pending_review.py"
+            ],
+            [
+              "python",
+              "-B",
+              "${PLUGIN_ROOT}/skills/draft-comment/scripts/post_pending_review.py"
+            ]
+          ],
+          "not_match": [
+            [
+              "python",
+              "${PLUGIN_ROOT}/skills/draft-comment/scripts/post_pending_review.py"
+            ]
+          ]
+        }
+      ]
     }
   }
 }
