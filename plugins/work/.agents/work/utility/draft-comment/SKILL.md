@@ -1,6 +1,6 @@
 ---
 name: draft-comment
-description: Draft findings on someone else's code, review comments or PR feedback Tommy will paste under his name. Use for a comment, feedback on a PR, reviewer wording, and every code-review finding. Own-PR replies use work:respond-comments; understanding code uses work:explaining-code.
+description: Draft findings on someone else's code, review comments or PR feedback Tommy will paste under his name. Use for a comment, feedback on a PR, reviewer wording, and every code-review finding. Own-PR replies use work:respond-comments.
 kind: utility
 domain: work
 profile: core
@@ -39,4 +39,4 @@ Proposed replacement: put the guard back before `order.Total` is read.
 
 Draft by default; he posts. Posting requires explicit authorization for the exact final wording and destination. Post with `python -B "<skill-directory>/scripts/post_pending_review.py" <owner/repo> <pr> <payload.json>`; it only creates a new pending review and verifies GitHub kept it pending. If a pending review already exists, the script refuses; add or edit comments on it directly in the GitHub UI instead. Never submit a review, approve, request changes, or resolve a thread. Before changing an existing pending review, read the live bodies and preserve his edits; do not reconstruct them from stale drafts.
 
-Replies on Tommy's own PR use `work:respond-comments`. Code understanding uses `work:explaining-code`. Human chat drafts, including a message embedded in review analysis, load the matching `work:ask-person`, `work:ask-the-team` or `work:ask-infra` member and use `machine:clip`.
+Replies on Tommy's own PR use `work:respond-comments`. Human chat drafts, including a message embedded in review analysis, load the matching `work:ask-person`, `work:ask-the-team` or `work:ask-infra` member and use `machine:clip`.
