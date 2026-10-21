@@ -15,7 +15,8 @@ provenance: house
 
 Write straight into a page the user owns or was assigned. Confluence keeps every version, so the write is
 reversible: no local draft, and no "should I publish?". Ask first only for someone else's page that nobody
-assigned.
+assigned. That covers content only: changing a page's type (live doc to page), location, access or watchers
+needs an explicit ask. Live docs have no section jumps, so name a section in plain text.
 
 ## HTML, never markdown
 
