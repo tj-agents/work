@@ -1,7 +1,7 @@
 {
   "name": "work",
   "displayName": "Work repositories",
-  "description": "Employer-agnostic communication and review workflows for work repositories.",
+  "description": "Employer-agnostic communication and review entry points for work repositories.",
   "author": {
     "name": "Tommy Seery"
   },
