@@ -8,13 +8,12 @@
     {
       "name": "work",
       "source": "./plugins/work",
-      "description": "Employer-agnostic communication, review and work-item entry points for work repositories.",
+      "description": "Employer-agnostic communication and review entry points for work repositories.",
       "category": "productivity",
       "keywords": [
         "work",
         "communication",
-        "review",
-        "work-items"
+        "review"
       ]
     }
   ]

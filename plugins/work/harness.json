@@ -13,18 +13,13 @@
       {
         "id": "base-agents",
         "repository": "tj-agents/core"
-      },
-      {
-        "id": "work-items-agents",
-        "repository": "tj-agents/work-items"
       }
     ],
     "plugins": [
       "work-agents/work",
       "base-agents/base",
       "base-agents/machine",
-      "base-agents/engineering",
-      "work-items-agents/work-items"
+      "base-agents/engineering"
     ],
     "hooks": [],
     "permissions": {

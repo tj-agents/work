@@ -3,131 +3,22 @@
   "dependencies": [
     "base-agents/base",
     "base-agents/machine",
-    "base-agents/engineering",
-    "work-items-agents/work-items"
+    "base-agents/engineering"
   ],
   "profiles": {
     "core": [
-      "address-bug",
-      "address-debt",
-      "address-feature",
-      "address-item",
-      "address-mistake",
-      "address-task",
       "ask",
       "ask-infra",
       "ask-person",
       "ask-the-team",
-      "bug",
       "confluence",
-      "debt",
       "draft-comment",
       "explaining-code",
-      "feature",
-      "item",
-      "mistake",
-      "respond-comments",
-      "task"
+      "respond-comments"
     ]
   },
   "compatibilitySkillAliases": {},
   "skills": [
-    {
-      "name": "address-bug",
-      "kind": "utility",
-      "profile": "core",
-      "applicability": [
-        "work repositories"
-      ],
-      "requires": [
-        "employer context",
-        "engineering",
-        "work-items"
-      ],
-      "provenance": [
-        "house"
-      ]
-    },
-    {
-      "name": "address-debt",
-      "kind": "utility",
-      "profile": "core",
-      "applicability": [
-        "work repositories"
-      ],
-      "requires": [
-        "employer context",
-        "engineering",
-        "work-items"
-      ],
-      "provenance": [
-        "house"
-      ]
-    },
-    {
-      "name": "address-feature",
-      "kind": "utility",
-      "profile": "core",
-      "applicability": [
-        "work repositories"
-      ],
-      "requires": [
-        "employer context",
-        "engineering",
-        "work-items"
-      ],
-      "provenance": [
-        "house"
-      ]
-    },
-    {
-      "name": "address-item",
-      "kind": "utility",
-      "profile": "core",
-      "applicability": [
-        "work repositories"
-      ],
-      "requires": [
-        "employer context",
-        "engineering",
-        "work-items"
-      ],
-      "provenance": [
-        "house"
-      ]
-    },
-    {
-      "name": "address-mistake",
-      "kind": "utility",
-      "profile": "core",
-      "applicability": [
-        "work repositories"
-      ],
-      "requires": [
-        "employer context",
-        "engineering",
-        "work-items"
-      ],
-      "provenance": [
-        "house"
-      ]
-    },
-    {
-      "name": "address-task",
-      "kind": "utility",
-      "profile": "core",
-      "applicability": [
-        "work repositories"
-      ],
-      "requires": [
-        "employer context",
-        "engineering",
-        "work-items"
-      ],
-      "provenance": [
-        "house"
-      ]
-    },
     {
       "name": "ask",
       "kind": "utility",
@@ -189,22 +80,6 @@
       ]
     },
     {
-      "name": "bug",
-      "kind": "utility",
-      "profile": "core",
-      "applicability": [
-        "work repositories"
-      ],
-      "requires": [
-        "employer context",
-        "engineering",
-        "work-items"
-      ],
-      "provenance": [
-        "house"
-      ]
-    },
-    {
       "name": "confluence",
       "kind": "utility",
       "profile": "core",
@@ -213,22 +88,6 @@
       ],
       "requires": [
         "available connectors"
-      ],
-      "provenance": [
-        "house"
-      ]
-    },
-    {
-      "name": "debt",
-      "kind": "utility",
-      "profile": "core",
-      "applicability": [
-        "work repositories"
-      ],
-      "requires": [
-        "employer context",
-        "engineering",
-        "work-items"
       ],
       "provenance": [
         "house"
@@ -265,54 +124,6 @@
       ]
     },
     {
-      "name": "feature",
-      "kind": "utility",
-      "profile": "core",
-      "applicability": [
-        "work repositories"
-      ],
-      "requires": [
-        "employer context",
-        "engineering",
-        "work-items"
-      ],
-      "provenance": [
-        "house"
-      ]
-    },
-    {
-      "name": "item",
-      "kind": "utility",
-      "profile": "core",
-      "applicability": [
-        "work repositories"
-      ],
-      "requires": [
-        "employer context",
-        "engineering",
-        "work-items"
-      ],
-      "provenance": [
-        "house"
-      ]
-    },
-    {
-      "name": "mistake",
-      "kind": "utility",
-      "profile": "core",
-      "applicability": [
-        "work repositories"
-      ],
-      "requires": [
-        "employer context",
-        "engineering",
-        "work-items"
-      ],
-      "provenance": [
-        "house"
-      ]
-    },
-    {
       "name": "respond-comments",
       "kind": "utility",
       "profile": "core",
@@ -322,22 +133,6 @@
       "requires": [
         "employer context",
         "available connectors"
-      ],
-      "provenance": [
-        "house"
-      ]
-    },
-    {
-      "name": "task",
-      "kind": "utility",
-      "profile": "core",
-      "applicability": [
-        "work repositories"
-      ],
-      "requires": [
-        "employer context",
-        "engineering",
-        "work-items"
       ],
       "provenance": [
         "house"

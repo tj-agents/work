@@ -1,22 +1,10 @@
 # work package capabilities
 
-- `address-bug` — utility — core
-- `address-debt` — utility — core
-- `address-feature` — utility — core
-- `address-item` — utility — core
-- `address-mistake` — utility — core
-- `address-task` — utility — core
 - `ask` — utility — core
 - `ask-infra` — utility — core
 - `ask-person` — utility — core
 - `ask-the-team` — utility — core
-- `bug` — utility — core
 - `confluence` — utility — core
-- `debt` — utility — core
 - `draft-comment` — utility — core
 - `explaining-code` — utility — core
-- `feature` — utility — core
-- `item` — utility — core
-- `mistake` — utility — core
 - `respond-comments` — utility — core
-- `task` — utility — core

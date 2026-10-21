@@ -19,7 +19,4 @@ enabled = true
 [plugins."template@tj-agents"]
 enabled = true
 
-[plugins."work-items@tj-agents"]
-enabled = true
-
 # END repo-declared agent capabilities
