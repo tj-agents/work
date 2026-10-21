@@ -10,7 +10,7 @@ skills live in `.agents/work`; Template generates the Claude and Codex payloads 
 
 `work:ask-person`, `work:ask-the-team` and `work:ask-infra` share `work:ask`: load the exact employer context identified at session start, read available recipient context, draft briefly, and verify the copy through `machine:clip`. The team route exhausts requirements evidence before asking; the infrastructure route establishes the relevant capabilities. Chat drafts are never sent without explicit current-message authorization.
 
-`work:draft-comment`, `work:respond-comments` and `work:explaining-code` provide review and explanation workflows. Pasteable review drafts are plain prose. Explanations never annotate source code.
+`work:draft-comment` and `work:respond-comments` provide review workflows. Pasteable review drafts are plain prose.
 
 `work:confluence` writes Confluence pages as HTML with native pieces and Mermaid diagrams readable in dark mode, and verifies the stored and rendered result. It ships `render_mermaid.py`, which renders `.mmd` sources into the site's own Mermaid macro, copied from an existing page, with a fresh id each run.
 

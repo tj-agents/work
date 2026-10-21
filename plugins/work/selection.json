@@ -13,7 +13,6 @@
       "ask-the-team",
       "confluence",
       "draft-comment",
-      "explaining-code",
       "respond-comments"
     ]
   },
@@ -95,21 +94,6 @@
     },
     {
       "name": "draft-comment",
-      "kind": "utility",
-      "profile": "core",
-      "applicability": [
-        "work repositories"
-      ],
-      "requires": [
-        "employer context",
-        "available connectors"
-      ],
-      "provenance": [
-        "house"
-      ]
-    },
-    {
-      "name": "explaining-code",
       "kind": "utility",
       "profile": "core",
       "applicability": [
