@@ -1,6 +1,6 @@
 ---
 name: draft-comment
-description: Draft findings on someone else's code, review comments or PR feedback Tommy will paste under his name. Use for a comment, feedback on a PR, reviewer wording, and every code-review finding. Own-PR replies use work:respond-comments; understanding code uses work:explaining-code.
+description: Draft findings on someone else's code, review comments or PR feedback Tommy will paste under his name. Use for a comment, feedback on a PR, reviewer wording, and every code-review finding. Own-PR replies use work:respond-comments.
 kind: utility
 domain: work
 profile: core
