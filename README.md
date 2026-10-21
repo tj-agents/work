@@ -1,5 +1,10 @@
 # Work
 
+Work is an employer-neutral work profile. This tooling repository, its primary checkout and every
+worktree are work scope. Never select, require or inject `personal@tj-agents` or its generated policy
+here. GitHub owner, publisher identity and checkout location do not establish personal-project scope.
+Employer plugins own tracker choice and employer authorization; Work does not route records to Personal.
+
 Employer-agnostic communication and review entry points for work repositories. Authored
 skills live in `.agents/work`; Template generates the Claude and Codex payloads from that source.
 
