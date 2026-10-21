@@ -34,3 +34,8 @@ Draft and clip by default. Do not send through a chat connector, create a ticket
 ## Routes
 
 Use `work:ask-person` for a named person, `work:ask-the-team` for a genuine requirement fork, and `work:ask-infra` for a capability or infrastructure blocker. Review findings use `work:draft-comment`; replies on Tommy's PR use `work:respond-comments`.
+
+```text
+"let Corbin know the AKS pull is failing" -> work:ask-infra, drafted and clipped, not sent
+"tell Kate the PR is ready" -> work:ask-person, drafted and clipped, not sent
+```
