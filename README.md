@@ -6,7 +6,7 @@ Employer-agnostic communication and review workflows for work repositories. Auth
 
 `work:draft-comment`, `work:respond-comments` and `work:explaining-code` provide review and explanation workflows. Pasteable review drafts are plain prose. Explanations never annotate source code.
 
-`work:confluence` writes Confluence pages as HTML with native pieces and Mermaid diagrams readable in dark mode, and verifies the stored and rendered result. It ships `render_mermaid.py`, which renders `.mmd` sources into the site's own Mermaid macro, copied from an existing page, with a fresh id each run.
+`work:confluence` writes Confluence pages as HTML with native pieces and Mermaid diagrams readable in dark mode, and verifies the stored and rendered result. It ships `render_mermaid.py`, which renders `.mmd` sources into the site's own Mermaid macro, copied from an existing page, leaving the macro id for Confluence to create.
 
 The ask workflows were restored from recovered skill loads and feedback memories, then separated from employer-specific routing and provider procedures. Employer plugins supply that context; this repository contains no employer identities or private chat data.
 

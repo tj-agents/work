@@ -5,7 +5,6 @@ import html.parser
 import json
 import re
 import time
-import uuid
 from pathlib import Path
 
 PLACEHOLDER = re.compile(r"^([ \t]*)\{\{([\w.-]+)\}\}[ \t]*\r?$", re.MULTILINE)
@@ -58,9 +57,8 @@ def macro(sample: dict, source: str) -> str:
     params = copy.deepcopy(sample["params"])
     body = params["macroParams"]["__bodyContent"]
     body["value"] = new_body(body.get("value"), source)
-    if not isinstance(params.get("macroMetadata"), dict):
-        params["macroMetadata"] = {}
-    params["macroMetadata"]["macroId"] = {"value": str(uuid.uuid4())}
+    if isinstance(params.get("macroMetadata"), dict):
+        params["macroMetadata"].pop("macroId", None)
     attributes = {name: value for name, value in sample["attributes"].items() if name not in INSTANCE_ATTRIBUTES}
     attributes["data-parameters"] = json.dumps(params, ensure_ascii=False)
     rendered = " ".join(name if value is None else f'{name}="{html.escape(value, quote=True)}"'

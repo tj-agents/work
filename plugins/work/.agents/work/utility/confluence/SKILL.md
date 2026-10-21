@@ -60,9 +60,11 @@ render with this skill's script:
 python -B <this skill's directory>/render_mermaid.py page.html sample.html out.html
 ```
 
-Each macro copies the sample's shape, with the diagram as its body, a fresh `macroId` and, where the sample
-has one, a fresh `date`. The app caches its drawing by `macroId`, so new source under an old id keeps showing
-the old diagram: re-render before every write and never reuse the output.
+Each macro copies the sample's shape, with the diagram as its body, a fresh `date` where the sample has one,
+and no `macroId`. Never set a `macroId`: Confluence must create it, and a diagram under an id you made up
+renders as an empty box. A rewrite keeps each existing macro's id, and the app caches its drawing by that id,
+so changed source can keep showing the old diagram. To force a redraw, write the page once without the
+diagram, then again with it, so Confluence creates a new id.
 
 ## Colours that work in dark mode
 
@@ -85,4 +87,5 @@ its stale copy over it. Before writing a live page, have the user reload or clos
 
 After every write, re-read the page in `html` and confirm the version advanced and still carries the change.
 Then look at the rendered page, through browser automation or by asking the user, before saying a layout,
-diagram or colour fix works. The stored source does not prove what renders.
+diagram or colour fix works. The stored source does not prove what renders: an empty or zero-height diagram
+block has failed. If you could not see it, say so.
