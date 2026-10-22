@@ -45,9 +45,9 @@ Label and value rows take a header first column, never an empty header row.
 ## Code on a page
 
 Open each snippet with one comment saying what it does and its file, marked `TODAY:` for existing code or
-`NEW:` for code that does not exist yet. No line-by-line comments. Show existing code in a plain code block
-and what is added in a code block inside a success panel, so its syntax colours stay: a code block cannot tint
-single lines, and `diff` drops the colours.
+`SKETCH:` for code nobody has written. No line-by-line comments. Put a status lozenge on the line above each
+code block saying whose it is and whether it exists. A panel around a code block shows no colour, because
+the block paints its own background, and `diff` drops the syntax colours.
 
 ## Every reference is a link
 
