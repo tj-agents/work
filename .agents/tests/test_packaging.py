@@ -10,9 +10,9 @@ EXPECTED_SKILLS = {
     "draft-comment", "respond-comments", "confluence",
 }
 DEPENDENCIES = {
-    "base-agents/base",
-    "base-agents/machine",
-    "base-agents/engineering",
+    "tj-agents/base",
+    "tj-agents/machine",
+    "tj-agents/engineering",
 }
 
 ENGINEERING_SKILLS = {
@@ -40,14 +40,13 @@ class PackagingTests(unittest.TestCase):
         selection = load("plugins/work/selection.json")
         self.assertEqual(set(selection["dependencies"]), DEPENDENCIES)
         harness = load("plugins/work/harness.json")
-        self.assertEqual(harness["plugin"], "work-agents/work")
-        self.assertEqual(set(harness["requires"]["plugins"]), DEPENDENCIES | {"work-agents/work"})
+        self.assertEqual(harness["plugin"], "tj-agents/work")
+        self.assertEqual(set(harness["requires"]["plugins"]), DEPENDENCIES | {"tj-agents/work"})
         marketplaces = {item["id"]: item["repository"] for item in harness["requires"]["marketplaces"]}
         self.assertEqual(
             marketplaces,
             {
-                "work-agents": "tj-agents/work",
-                "base-agents": "tj-agents/core",
+                "tj-agents": "tj-agents/marketplace",
             },
         )
         self.assertEqual(harness["requires"]["hooks"], [])
@@ -113,10 +112,10 @@ class PackagingTests(unittest.TestCase):
                     self.assertIn(name, EXPECTED_SKILLS, str(path))
                 elif namespace == "engineering":
                     self.assertIn(name, ENGINEERING_SKILLS, str(path))
-                    self.assertIn("base-agents/engineering", load("plugins/work/selection.json")["dependencies"])
+                    self.assertIn("tj-agents/engineering", load("plugins/work/selection.json")["dependencies"])
                 else:
                     self.assertEqual((namespace, name), ("machine", "clip"), str(path))
-                    self.assertIn("base-agents/machine", load("plugins/work/selection.json")["dependencies"])
+                    self.assertIn("tj-agents/machine", load("plugins/work/selection.json")["dependencies"])
 
 
 if __name__ == "__main__":
