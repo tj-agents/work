@@ -1,5 +1,4 @@
 {
-  "name": "work-agents",
   "description": "Employer-agnostic communication, review and work-item entry points for work repositories.",
   "owner": {
     "name": "Tommy Seery"
