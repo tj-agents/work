@@ -39,6 +39,15 @@ survive a round trip.
 | Table of contents macro | a page with more than a few sections |
 
 Put parallel items in a table, not bullets of prose. Never draw ASCII art or a coloured table as a diagram.
+A status lozenge goes on the line under a heading, never in it, because it changes the heading's link target.
+Label and value rows take a header first column, never an empty header row.
+
+## Code on a page
+
+Open each snippet with one comment saying what it does and its file, marked `TODAY:` for existing code or
+`NEW:` for code that does not exist yet. No line-by-line comments. Show existing code in a plain code block
+and what is added in a code block inside a success panel, so its syntax colours stay: a code block cannot tint
+single lines, and `diff` drops the colours.
 
 ## Every reference is a link
 
