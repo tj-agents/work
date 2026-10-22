@@ -6,5 +6,4 @@
 - `ask-the-team` — utility — core
 - `confluence` — utility — core
 - `draft-comment` — utility — core
-- `explaining-code` — utility — core
 - `respond-comments` — utility — core

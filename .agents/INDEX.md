@@ -10,5 +10,4 @@ Generated from `.agents/<plugin>/<kind>/<family>/<member>/SKILL.md`; a skill's n
 - `ask-the-team` — utility — core — `.agents/work/utility/ask/the-team/SKILL.md`
 - `confluence` — utility — core — `.agents/work/utility/confluence/SKILL.md`
 - `draft-comment` — utility — core — `.agents/work/utility/draft-comment/SKILL.md`
-- `explaining-code` — utility — core — `.agents/work/utility/explaining-code/SKILL.md`
 - `respond-comments` — utility — core — `.agents/work/utility/respond-comments/SKILL.md`

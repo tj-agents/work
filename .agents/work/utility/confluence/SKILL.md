@@ -15,7 +15,8 @@ provenance: house
 
 Write straight into a page the user owns or was assigned. Confluence keeps every version, so the write is
 reversible: no local draft, and no "should I publish?". Ask first only for someone else's page that nobody
-assigned.
+assigned. That covers content only: changing a page's type (live doc to page), location, access or watchers
+needs an explicit ask.
 
 ## HTML, never markdown
 
@@ -78,14 +79,17 @@ classDef done fill:<bold fill hex>,stroke:<darker hex>,color:#FFFFFF
 
 Never `style X fill:<pastel>` on its own. Leave unstyled nodes to the theme.
 
-## Live docs overwrite API writes
+## Live docs merge API writes
 
-A page with subtype `live` autosaves from any open editor tab, and a tab opened before an API write saves
-its stale copy over it. Before writing a live page, have the user reload or close every editor tab on it.
+A page with subtype `live` shows its collaborative editor document, not the stored body the API reads.
+An API write is merged into that document rather than replacing it, so a macro the write replaced stays
+beside its replacement: every diagram re-write adds a duplicate. On a live page, write diagrams once, and
+change or remove an existing one in the editor, never by another API write.
 
 ## Verify before claiming it is done
 
 After every write, re-read the page in `html` and confirm the version advanced and still carries the change.
 Then look at the rendered page, through browser automation or by asking the user, before saying a layout,
 diagram or colour fix works. The stored source does not prove what renders: an empty or zero-height diagram
-block has failed. If you could not see it, say so.
+block has failed. On a live page the API read cannot see duplicates, so count the macros in the editor's DOM.
+If you could not see it, say so.
