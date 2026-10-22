@@ -17,8 +17,8 @@ skills live in `.agents/work`; Template generates the Claude and Codex payloads 
 The ask workflows were restored from recovered skill loads and feedback memories, then separated from employer-specific routing and provider procedures. Employer plugins supply that context; this repository contains no employer identities or private chat data.
 
 Install only for work repositories through the employer plugin's repository-local installation procedure.
-Enable `work-agents/work`, `base-agents/base`,
-`base-agents/engineering` and `base-agents/machine` together. Do not enable this plugin at user scope.
+Enable `tj-agents/work`, `tj-agents/base`,
+`tj-agents/engineering` and `tj-agents/machine` together. Do not enable this plugin at user scope.
 Its version 3 tier requires the reserved `employer` fact established by employer detection.
 
 After authored changes, run `pwsh .agents/sync-generated.ps1`, `pwsh .agents/sync-generated.ps1 -Check`, and `template:check`. Run `python -B .agents/tests/test_packaging.py` for packaging isolation and dependency checks.

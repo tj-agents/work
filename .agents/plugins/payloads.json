@@ -6,9 +6,9 @@
   },
   "dependencies": {
     "work": [
-      "base-agents/base",
-      "base-agents/machine",
-      "base-agents/engineering"
+      "tj-agents/base",
+      "tj-agents/machine",
+      "tj-agents/engineering"
     ]
   }
 }
