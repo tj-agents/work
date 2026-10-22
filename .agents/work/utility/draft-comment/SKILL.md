@@ -17,15 +17,15 @@ Read the actual code, callers, data shape and repository conventions before asse
 
 ## Write the point and one option
 
-Plain prose, no headings, lists, blockquotes or wrapping fences in the draft. State the concrete problem and one option, then stop. Use a user-visible field, action or screen when it explains the defect more clearly than a class name. Backtick identifiers, types, files and flags. Add one fact and its consequence only if the finding otherwise cannot be understood. Do not append a defence, an invitation to ignore it or a tail explaining what the option buys.
+Plain prose, no headings, lists, blockquotes or a fence wrapping the draft. State the concrete problem and one option, then stop. Use a user-visible field, action or screen when it explains the defect more clearly than a class name. Backtick identifiers, types, files and flags. Add one fact and its consequence only if the finding otherwise cannot be understood. Do not append a defence, an invitation to ignore it or a tail explaining what the option buys.
 
-A definite defect gets a statement. A genuine choice may get a question. Keep the normal short register and supplied wording; do not manufacture typos. Avoid em dashes, corporate polish and gratuitous compliments. Do not attach code blocks to a pasteable prose draft unless Tommy explicitly requests a code suggestion.
+A definite defect gets a statement. A genuine choice may get a question. Keep the normal short register and supplied wording; do not manufacture typos. Avoid em dashes, corporate polish and gratuitous compliments. Add a short fenced snippet when the option is a specific implementation or the snippet disambiguates in fewer words than prose; a subjective point needs none.
 
-Group repeated instances of the same mistake in one comment. Anchor to the line that makes the point understandable and link the actual design evidence when needed; never invent a design URL. Review bodies are short: a verdict and one steer.
+Give each distinct finding its own comment; group repeated instances of the same mistake in one. Anchor to the line that makes the point understandable and link the actual design evidence when needed; never invent a design URL. Review bodies are short: a verdict and one steer.
 
 ## Handover and posting
 
-Provide each pasteable draft as plain prose. If Tommy needs evidence, put a short explanation separately after it, opening with the reviewed code verbatim in a fenced block under each clickable path and line (the base code for a removal), then the proposed replacement if there is one. Once a finding has been explained, a request for its wording gets the draft alone. Present the consequential findings first and say plainly if nothing blocks.
+Provide each pasteable draft ready to paste. If Tommy needs evidence, put a short explanation separately after it, opening with the reviewed code verbatim in a fenced block under each clickable path and line (the base code for a removal), then any proposed replacement the draft does not already carry. Once a finding has been explained, a request for its wording gets the draft alone. Present the consequential findings first and say plainly if nothing blocks.
 
 ````text
 Draft: `GetOrder` no longer returns 404 for an unknown id; it throws on `order.Total`. Restore the null guard.
