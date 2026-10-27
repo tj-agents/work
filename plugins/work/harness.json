@@ -15,7 +15,8 @@
       "tj-agents/work",
       "tj-agents/base",
       "tj-agents/machine",
-      "tj-agents/engineering"
+      "tj-agents/engineering",
+      "tj-agents/docs"
     ],
     "hooks": [],
     "permissions": {

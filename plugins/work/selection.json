@@ -3,7 +3,8 @@
   "dependencies": [
     "tj-agents/base",
     "tj-agents/machine",
-    "tj-agents/engineering"
+    "tj-agents/engineering",
+    "tj-agents/docs"
   ],
   "profiles": {
     "core": [
