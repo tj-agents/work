@@ -13,6 +13,7 @@ DEPENDENCIES = {
     "tj-agents/base",
     "tj-agents/machine",
     "tj-agents/engineering",
+    "tj-agents/docs",
 }
 
 ENGINEERING_SKILLS = {
