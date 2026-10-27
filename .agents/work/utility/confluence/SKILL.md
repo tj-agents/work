@@ -26,6 +26,8 @@ survive a round trip.
 
 ## Use the native pieces
 
+Lay the page out with `docs:layout`; these are Confluence's native pieces for it.
+
 | Piece | For |
 | --- | --- |
 | Info panel (`panel-info`) | the summary a reader can stop at |
@@ -37,8 +39,6 @@ survive a round trip.
 | Decision list | decisions made and still open |
 | Task list | prerequisites; open questions with owners |
 | Table of contents macro | a page with more than a few sections |
-
-Put parallel items in a table, not bullets of prose. Never draw ASCII art or a coloured table as a diagram.
 
 ## Diagrams: the organisation's standard, through the site's macro
 
@@ -57,9 +57,9 @@ the old diagram: re-render before every write and never reuse the output.
 
 ## Colours that work in dark mode
 
-Dark mode lightens default text, so a pastel fill with no text colour is unreadable. Colour nodes only with
-`classDef`, setting `fill`, `stroke` and `color` together, and name classes so they cannot clash with node ids.
-Pair a bold fill with white text, or a bright fill with dark text:
+Colour as `docs:layout` says. Confluence's dark mode lightens default text, so a pastel fill with no text
+colour is unreadable. Name classes so they cannot clash with node ids, and pair a bold fill with white text
+or a bright fill with dark text:
 
 ```text
 classDef done fill:<bold fill hex>,stroke:<darker hex>,color:#FFFFFF
