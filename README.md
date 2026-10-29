@@ -19,6 +19,6 @@ The ask workflows were restored from recovered skill loads and feedback memories
 Install only for work repositories through the employer plugin's repository-local installation procedure.
 Enable `tj-agents/work`, `tj-agents/base`,
 `tj-agents/engineering` and `tj-agents/machine` together. Do not enable this plugin at user scope.
-Its version 3 tier requires the reserved `employer` fact established by employer detection.
+Its tier requires the reserved `employer` fact established by employer detection.
 
 After authored changes, run `pwsh .agents/sync-generated.ps1`, `pwsh .agents/sync-generated.ps1 -Check`, and `template:check`. Run `python -B .agents/tests/test_packaging.py` for packaging isolation and dependency checks.
