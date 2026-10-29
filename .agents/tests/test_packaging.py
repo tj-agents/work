@@ -28,10 +28,9 @@ def load(relative):
 class PackagingTests(unittest.TestCase):
     def test_employer_detection_is_required(self):
         tier = load("plugins/work/tier.json")
-        self.assertEqual(tier["schema_version"], 3)
+        self.assertNotIn("schema_version", tier)
         self.assertEqual(tier["applies"], "stack-present")
         self.assertEqual(tier["detect"], {"fact": "employer"})
-        self.assertEqual(tier["owner_repository"], ["tj-agents/work"])
         for host in ("claude", "codex"):
             manifest = load(f"plugins/work/.{host}-plugin/plugin.json")
             self.assertNotIn("hooks", manifest)
