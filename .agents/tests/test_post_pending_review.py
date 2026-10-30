@@ -9,7 +9,7 @@ from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SCRIPT = ROOT / ".agents/work/utility/draft-comment/scripts/post_pending_review.py"
+SCRIPT = ROOT / ".agents/work/skills/draft-comment/scripts/post_pending_review.py"
 
 
 def load_script():

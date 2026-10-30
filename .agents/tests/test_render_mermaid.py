@@ -7,7 +7,7 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SCRIPT = ROOT / ".agents/work/utility/confluence/render_mermaid.py"
+SCRIPT = ROOT / ".agents/work/skills/confluence/scripts/render_mermaid.py"
 spec = importlib.util.spec_from_file_location("render_mermaid", SCRIPT)
 render_mermaid = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(render_mermaid)

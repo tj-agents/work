@@ -7,7 +7,7 @@
   "dependencies": {
     "work": [
       "tj-agents/base",
-      "tj-agents/machine",
+      "tj-agents/cli",
       "tj-agents/engineering",
       "tj-agents/docs"
     ]
