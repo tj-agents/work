@@ -2,7 +2,7 @@
   "plugin": "work",
   "dependencies": [
     "tj-agents/base",
-    "tj-agents/machine",
+    "tj-agents/cli",
     "tj-agents/engineering",
     "tj-agents/docs"
   ],
@@ -21,7 +21,7 @@
   "skills": [
     {
       "name": "ask",
-      "kind": "utility",
+      "kind": "standard",
       "profile": "core",
       "applicability": [
         "work repositories"
@@ -36,7 +36,7 @@
     },
     {
       "name": "ask-infra",
-      "kind": "utility",
+      "kind": "operation",
       "profile": "core",
       "applicability": [
         "work repositories"
@@ -51,7 +51,7 @@
     },
     {
       "name": "ask-person",
-      "kind": "utility",
+      "kind": "operation",
       "profile": "core",
       "applicability": [
         "work repositories"
@@ -66,7 +66,7 @@
     },
     {
       "name": "ask-the-team",
-      "kind": "utility",
+      "kind": "operation",
       "profile": "core",
       "applicability": [
         "work repositories"
@@ -81,7 +81,7 @@
     },
     {
       "name": "confluence",
-      "kind": "utility",
+      "kind": "operation",
       "profile": "core",
       "applicability": [
         "work repositories"
@@ -95,7 +95,7 @@
     },
     {
       "name": "draft-comment",
-      "kind": "utility",
+      "kind": "operation",
       "profile": "core",
       "applicability": [
         "work repositories"
@@ -110,7 +110,7 @@
     },
     {
       "name": "respond-comments",
-      "kind": "utility",
+      "kind": "operation",
       "profile": "core",
       "applicability": [
         "work repositories"

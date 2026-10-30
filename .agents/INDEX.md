@@ -1,13 +1,13 @@
 # work capabilities
 
-Generated from `.agents/<plugin>/<kind>/<family>/<member>/SKILL.md`; a skill's name is its folder path below the kind folder joined by hyphens.
+Generated from `.agents/<plugin>/skills/<family>/<member>/SKILL.md`; a skill's name is its folder path below skills/ joined by hyphens.
 
 ## work
 
-- `ask` — utility — core — `.agents/work/utility/ask/SKILL.md`
-- `ask-infra` — utility — core — `.agents/work/utility/ask/infra/SKILL.md`
-- `ask-person` — utility — core — `.agents/work/utility/ask/person/SKILL.md`
-- `ask-the-team` — utility — core — `.agents/work/utility/ask/the-team/SKILL.md`
-- `confluence` — utility — core — `.agents/work/utility/confluence/SKILL.md`
-- `draft-comment` — utility — core — `.agents/work/utility/draft-comment/SKILL.md`
-- `respond-comments` — utility — core — `.agents/work/utility/respond-comments/SKILL.md`
+- `ask-infra` — operation — core — `.agents/work/skills/ask/infra/SKILL.md`
+- `ask-person` — operation — core — `.agents/work/skills/ask/person/SKILL.md`
+- `ask-the-team` — operation — core — `.agents/work/skills/ask/the-team/SKILL.md`
+- `confluence` — operation — core — `.agents/work/skills/confluence/SKILL.md`
+- `draft-comment` — operation — core — `.agents/work/skills/draft-comment/SKILL.md`
+- `respond-comments` — operation — core — `.agents/work/skills/respond-comments/SKILL.md`
+- `ask` — standard — core — `.agents/work/skills/ask/SKILL.md`
