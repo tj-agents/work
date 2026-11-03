@@ -1,6 +1,6 @@
 ---
 name: ask-infra
-description: Draft an infrastructure or access request when deployment, pipelines or environments are blocked by a capability we do not hold. Use for ask infra, ask DevOps, tell the infrastructure owner, let X know about access, or an embedded message requesting a grant. Load work:ask and clip with machine:clip.
+description: Draft an infrastructure or access request when deployment, pipelines or environments are blocked by a capability we do not hold. Use for ask infra, ask DevOps, tell the infrastructure owner, let X know about access, or an embedded message requesting a grant. Load work:ask; format and clip with work:teams-message.
 kind: utility
 domain: work
 profile: core
@@ -23,7 +23,7 @@ Use the available provider evidence and employer procedures to check both sides.
 
 Say what failed and where, identify the exact principal and scope, request the concrete grant or change, and state the verified capability blocker. A verified difference from a working environment can earn the single supporting reason when it helps action the request. Backtick machine identifiers. Use the existing permission shape where it meets the need; do not invent broader access.
 
-Keep command walkthroughs, role dumps, pipeline mechanics and the full investigation out of the draft. Retain evidence for follow-up. Clip through `machine:clip` and acknowledge in one or two lines as `work:ask` requires.
+Keep command walkthroughs, role dumps, pipeline mechanics and the full investigation out of the draft. Retain evidence for follow-up. Hand over through `work:teams-message`.
 
 ## While waiting
 

@@ -7,7 +7,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[2]
 EXPECTED_SKILLS = {
     "ask", "ask-person", "ask-the-team", "ask-infra",
-    "draft-comment", "respond-comments", "confluence",
+    "draft-comment", "respond-comments", "confluence", "teams-message",
 }
 DEPENDENCIES = {
     "tj-agents/base",
