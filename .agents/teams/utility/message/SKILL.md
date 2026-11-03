@@ -25,7 +25,7 @@ the final action:
 
 ```text
 python -B '<skill-directory>/scripts/teams_message.py' --path '<draft.md>'
-  Teams message OK (164 chars).
+  Teams message OK (166 chars).
 python -B '<cli:clip skill-directory>/scripts/copy_draft.py' --path '<draft.md>'
   Copied 164 chars, 1 code spans, 1 links, HTML + plain verified on the clipboard.
 Draft: I've been working on [these two pages](https://dev.azure.com/org/proj/_git/web/pullrequest/412), they're ready for review. The main change is the `OrderSummary` grid.
