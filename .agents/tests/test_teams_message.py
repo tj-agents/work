@@ -20,8 +20,19 @@ def messages(text):
 
 class CheckMessageTests(unittest.TestCase):
     def test_a_message_with_link_text_and_code_spans_passes(self):
-        text = "I've been working on [these two pages](https://example.com/pr/412), the `OrderSummary` grid changed."
+        text = "I've finished [AuthZ design](https://example.com/101) and [Worker rollout](https://example.com/102), `cris-authz` changed."
         self.assertEqual(messages(text), [])
+
+    def test_generic_or_plural_link_text_is_rejected(self):
+        for label in ("here", "This link", "these two pages", "both docs", "all of them"):
+            with self.subTest(label=label):
+                self.assertEqual(
+                    messages(f"see [{label}](https://example.com/101)"),
+                    [(1, f"link text '{label}' must name one target, such as its page title")],
+                )
+
+    def test_link_text_that_only_starts_like_a_plural_word_passes(self):
+        self.assertEqual(messages("see [Allocation design](https://example.com/101)"), [])
 
     def test_a_raw_url_is_rejected(self):
         self.assertEqual(messages("PR is in https://example.com/pr/412 now"), [(1, "raw URL; write it as [link text](url)")])

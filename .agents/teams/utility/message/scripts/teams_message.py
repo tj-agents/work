@@ -20,6 +20,11 @@ _LIST_ITEM = re.compile(r"^\s*(?:[-*+]|\d+[.)])\s")
 _BLOCKQUOTE = re.compile(r"^\s*>")
 _BOLD = re.compile(r"\*\*|__")
 _EM_DASH = "—"
+_GENERIC_LABEL = re.compile(
+    r"(?:here|this|that|link|this link|the link|click here|page|pages|doc|docs)"
+    r"|(?:these|those|both|all)\b.*",
+    re.IGNORECASE,
+)
 
 
 class Problem(NamedTuple):
@@ -31,8 +36,11 @@ def _prose_problems(number: int, line: str) -> list[Problem]:
     problems: list[Problem] = []
     prose = _CODE_SPAN.sub("", line)
     for link in _LINK.finditer(prose):
-        if _URL.match(link["label"].strip()):
+        label = link["label"].strip()
+        if _URL.match(label):
             problems.append(Problem(number, "link text is a raw URL; describe the target instead"))
+        elif _GENERIC_LABEL.fullmatch(label):
+            problems.append(Problem(number, f"link text '{label}' must name one target, such as its page title"))
     if _URL.search(_LINK.sub("", prose)):
         problems.append(Problem(number, "raw URL; write it as [link text](url)"))
     if _HEADING.match(prose):

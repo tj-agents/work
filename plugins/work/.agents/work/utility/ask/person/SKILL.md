@@ -20,7 +20,7 @@ Lead with the question or useful update. Include the concrete fact they need and
 A requirement decision belongs to `work:ask-the-team`; a request requiring infrastructure authority belongs to `work:ask-infra`. Keep the recipient's draft specific to what they can answer or do. Acknowledge the verified clipboard copy in one or two lines.
 
 ```text
-Request: let Kate know the [Orders PR](https://dev.azure.com/org/proj/_git/web/pullrequest/412) is ready.
-Draft:   Hi Kate, the [Orders PR](https://dev.azure.com/org/proj/_git/web/pullrequest/412) is ready for review. The main change is the `OrderSummary` grid.
-Handover: teams:message checks and copies it; reply "Kate's message is on your clipboard (146 chars)."
+Request: let Kate know the AuthZ and worker pages are ready.
+Draft:   Hi Kate, [AuthZ design](https://example.atlassian.net/wiki/spaces/ENG/pages/101) and [Worker rollout](https://example.atlassian.net/wiki/spaces/ENG/pages/102) are ready for review.
+Handover: teams:message checks and copies it; nothing is sent.
 ```

@@ -1,6 +1,6 @@
 ---
 name: message
-description: Write a Teams or chat message Tommy will paste, with clickable link text instead of raw URLs and backticked identifiers, check it with a deterministic script and copy it through cli:clip. Use for any Teams message, status update, ready-for-review note or reply he will send, in every repo, including every work:ask draft and a message embedded in another answer.
+description: Write a Teams or chat message Tommy will paste, check it with a deterministic script and copy it through cli:clip. Use for any Teams message, status update, ready-for-review note or reply he will send, in every repo, including every work:ask draft and a message embedded in another answer.
 kind: utility
 domain: work
 profile: core
