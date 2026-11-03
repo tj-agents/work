@@ -14,8 +14,7 @@
       "ask-the-team",
       "confluence",
       "draft-comment",
-      "respond-comments",
-      "teams-message"
+      "respond-comments"
     ]
   },
   "compatibilitySkillAliases": {},
@@ -119,20 +118,6 @@
       "requires": [
         "employer context",
         "available connectors"
-      ],
-      "provenance": [
-        "house"
-      ]
-    },
-    {
-      "name": "teams-message",
-      "kind": "utility",
-      "profile": "core",
-      "applicability": [
-        "work repositories"
-      ],
-      "requires": [
-        "cli:clip"
       ],
       "provenance": [
         "house"

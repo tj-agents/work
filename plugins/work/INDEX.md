@@ -7,4 +7,3 @@
 - `confluence` — utility — core
 - `draft-comment` — utility — core
 - `respond-comments` — utility — core
-- `teams-message` — utility — core

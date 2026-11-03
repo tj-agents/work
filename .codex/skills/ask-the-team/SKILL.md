@@ -1,6 +1,6 @@
 ---
 name: ask-the-team
-description: Draft a question to the team that owns a genuinely undecided requirement, behaviour, copy, scope or design. Use for ask the team, ask product, check with the owner, let the team know, or an embedded message for a decision maker. Load work:ask and hand over with work:teams-message before the ambiguous part is built.
+description: Draft a question to the team that owns a genuinely undecided requirement, behaviour, copy, scope or design. Use for ask the team, ask product, check with the owner, let the team know, or an embedded message for a decision maker. Load work:ask and hand over with cli:teams-message before the ambiguous part is built.
 kind: utility
 domain: work
 profile: core
