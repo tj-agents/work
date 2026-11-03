@@ -21,7 +21,7 @@ message; fence only a command the reader will run. Keep it to a few sentences.
 ```text
 Request: tell the team the two Orders pages are ready for review.
 Draft:   I've been working on [these two pages](https://dev.azure.com/org/proj/_git/web/pullrequest/412), they're ready for review. The main change is the `OrderSummary` grid.
-Clip:    Copied 140 chars, 1 code spans, 1 links, HTML + plain verified on the clipboard.
+Clip:    Copied 164 chars, 1 code spans, 1 links, HTML + plain verified on the clipboard.
 ```
 
 Write the exact message to a UTF-8 scratch file and copy it with `cli:clip` as the final action, so
