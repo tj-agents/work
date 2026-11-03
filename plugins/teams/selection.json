@@ -1,0 +1,29 @@
+{
+  "plugin": "teams",
+  "dependencies": [
+    "tj-agents/cli"
+  ],
+  "profiles": {
+    "core": [
+      "message"
+    ]
+  },
+  "compatibilitySkillAliases": {},
+  "skills": [
+    {
+      "name": "message",
+      "kind": "utility",
+      "profile": "core",
+      "applicability": [
+        "all projects"
+      ],
+      "requires": [
+        "python",
+        "cli:clip"
+      ],
+      "provenance": [
+        "house"
+      ]
+    }
+  ]
+}

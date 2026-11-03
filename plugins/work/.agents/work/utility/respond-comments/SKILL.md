@@ -27,7 +27,7 @@ Draft in plain prose with backticked identifiers. No headings, lists, bold, bloc
 
 Draft by default; he posts. Explicit authorization must identify the final wording and destination before using a review connector. Never infer posting permission from a request to rewrite or finish the review. Do not resolve threads, approve, request changes or submit reviews as a side effect. Use the provider's threaded reply for an inline comment and its PR conversation for a review-summary reply only when authorized.
 
-Findings on someone else's code use `work:draft-comment`. Human chat messages produced while answering a review load the matching `work:ask-person`, `work:ask-the-team` or `work:ask-infra` member and hand over through `cli:teams-message`.
+Findings on someone else's code use `work:draft-comment`. Human chat messages produced while answering a review load the matching `work:ask-person`, `work:ask-the-team` or `work:ask-infra` member and hand over through `teams:message`.
 
 ```text
 Comment: "Can these magic numbers be constants?"

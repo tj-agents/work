@@ -8,7 +8,9 @@ Employer plugins own tracker choice and employer authorization; Work does not ro
 Employer-agnostic communication and review entry points for work repositories. Authored
 skills live in `.agents/work`; Template generates the Claude and Codex payloads from that source.
 
-`work:ask-person`, `work:ask-the-team` and `work:ask-infra` share `work:ask`: load the exact employer context identified at session start, read available recipient context, draft briefly, and hand over through `cli:teams-message`, which checks Teams markdown and copies it through `cli:clip`. The team route exhausts requirements evidence before asking; the infrastructure route establishes the relevant capabilities. Chat drafts are never sent without explicit current-message authorization.
+The sibling `teams` plugin, authored in `.agents/teams` and selected in every repo, ships `teams:message`: it checks a Teams draft with the typed `teams_message.py` before `cli:clip` copies it.
+
+`work:ask-person`, `work:ask-the-team` and `work:ask-infra` share `work:ask`: load the exact employer context identified at session start, read available recipient context, draft briefly, and hand over through `teams:message`, which checks Teams markdown and copies it through `cli:clip`. The team route exhausts requirements evidence before asking; the infrastructure route establishes the relevant capabilities. Chat drafts are never sent without explicit current-message authorization.
 
 `work:draft-comment` and `work:respond-comments` provide review workflows. Pasteable review drafts are plain prose.
 

@@ -1,6 +1,6 @@
 ---
 name: ask-infra
-description: Draft an infrastructure or access request when deployment, pipelines or environments are blocked by a capability we do not hold. Use for ask infra, ask DevOps, tell the infrastructure owner, let X know about access, or an embedded message requesting a grant. Load work:ask; format and clip with cli:teams-message.
+description: Draft an infrastructure or access request when deployment, pipelines or environments are blocked by a capability we do not hold. Use for ask infra, ask DevOps, tell the infrastructure owner, let X know about access, or an embedded message requesting a grant. Load work:ask; format and clip with teams:message.
 kind: utility
 domain: work
 profile: core
@@ -23,7 +23,7 @@ Use the available provider evidence and employer procedures to check both sides.
 
 Say what failed and where, identify the exact principal and scope, request the concrete grant or change, and state the verified capability blocker. A verified difference from a working environment can earn the single supporting reason when it helps action the request. Backtick machine identifiers. Use the existing permission shape where it meets the need; do not invent broader access.
 
-Keep command walkthroughs, role dumps, pipeline mechanics and the full investigation out of the draft. Retain evidence for follow-up. Hand over through `cli:teams-message`.
+Keep command walkthroughs, role dumps, pipeline mechanics and the full investigation out of the draft. Retain evidence for follow-up. Hand over through `teams:message`.
 
 ## While waiting
 
@@ -32,5 +32,5 @@ Continue work the permission cannot change. Keep blocked deployments and approva
 ```text
 Request: tell infra the dev pipeline cannot pull from `acrshared`.
 Draft:   Hi Corbin, `pipeline-dev` fails pulling from `acrshared` because its identity `sp-web-dev` has no `AcrPull` there. Could you grant `AcrPull` on `acrshared` to `sp-web-dev`, as `sp-web-test` already has?
-Handover: cli:teams-message checks and copies it; nothing is sent.
+Handover: teams:message checks and copies it; nothing is sent.
 ```

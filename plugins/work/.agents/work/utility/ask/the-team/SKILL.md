@@ -1,6 +1,6 @@
 ---
 name: ask-the-team
-description: Draft a question to the team that owns a genuinely undecided requirement, behaviour, copy, scope or design. Use for ask the team, ask product, check with the owner, let the team know, or an embedded message for a decision maker. Load work:ask and hand over with cli:teams-message before the ambiguous part is built.
+description: Draft a question to the team that owns a genuinely undecided requirement, behaviour, copy, scope or design. Use for ask the team, ask product, check with the owner, let the team know, or an embedded message for a decision maker. Load work:ask and hand over with teams:message before the ambiguous part is built.
 kind: utility
 domain: work
 profile: core
@@ -29,10 +29,10 @@ If the specification never requests an addition, do not build it and invite a ve
 
 Draft before building the ambiguous part. Continue everything the answer cannot change and leave the undecided behaviour unbuilt. If it already exists, hold that part from delivery while the decision is outstanding. Do not select an option merely to avoid waiting, or add source comments as a substitute for getting the decision.
 
-Keep the checked evidence and costs available for follow-up; hand over through `cli:teams-message`. Capability blockers use `work:ask-infra`. Review findings use `work:draft-comment`.
+Keep the checked evidence and costs available for follow-up; hand over through `teams:message`. Capability blockers use `work:ask-infra`. Review findings use `work:draft-comment`.
 
 ```text
 Request: the story never says whether archived orders appear in search.
 Draft:   Hi team, on the Orders search page should archived orders show in results? Either hide them, or show them with an `Archived` tag; I'd hide them since the story only mentions active orders.
-Handover: cli:teams-message checks and copies it before the filter is built.
+Handover: teams:message checks and copies it before the filter is built.
 ```

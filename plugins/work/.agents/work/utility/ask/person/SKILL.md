@@ -1,6 +1,6 @@
 ---
 name: ask-person
-description: Draft a short human chat or DM to a named person. Use for tell Kate, let X know, Message for Yan, draft a message, or wording for a colleague, including inside an investigation or other answer. Always load work:ask; format and clip with cli:teams-message.
+description: Draft a short human chat or DM to a named person. Use for tell Kate, let X know, Message for Yan, draft a message, or wording for a colleague, including inside an investigation or other answer. Always load work:ask; format and clip with teams:message.
 kind: utility
 domain: work
 profile: core
@@ -15,12 +15,12 @@ Load `work:ask` before drafting and follow its employer lookup, recent context, 
 
 Resolve the requested person through the available chat connector using employer context. Read the relevant recent exchange and use the recipient's own terminology. If the connector is unavailable, work from the supplied conversation without claiming a lookup. Ask for a recipient only when ambiguity prevents a useful draft.
 
-Lead with the question or useful update. Include the concrete fact they need and at most one supporting reason; stop after a few sentences. A request to let someone know during another task still invokes this skill and still ends in `cli:teams-message`, not an inline Message for X block.
+Lead with the question or useful update. Include the concrete fact they need and at most one supporting reason; stop after a few sentences. A request to let someone know during another task still invokes this skill and still ends in `teams:message`, not an inline Message for X block.
 
 A requirement decision belongs to `work:ask-the-team`; a request requiring infrastructure authority belongs to `work:ask-infra`. Keep the recipient's draft specific to what they can answer or do. Acknowledge the verified clipboard copy in one or two lines.
 
 ```text
 Request: let Kate know the [Orders PR](https://dev.azure.com/org/proj/_git/web/pullrequest/412) is ready.
 Draft:   Hi Kate, the [Orders PR](https://dev.azure.com/org/proj/_git/web/pullrequest/412) is ready for review. The main change is the `OrderSummary` grid.
-Handover: cli:teams-message checks and copies it; reply "Kate's message is on your clipboard (146 chars)."
+Handover: teams:message checks and copies it; reply "Kate's message is on your clipboard (146 chars)."
 ```

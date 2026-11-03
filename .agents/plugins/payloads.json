@@ -2,6 +2,9 @@
   "payloads": {
     "work": [
       "work"
+    ],
+    "teams": [
+      "teams"
     ]
   },
   "dependencies": {
@@ -9,7 +12,11 @@
       "tj-agents/base",
       "tj-agents/machine",
       "tj-agents/engineering",
-      "tj-agents/docs"
+      "tj-agents/docs",
+      "teams"
+    ],
+    "teams": [
+      "tj-agents/cli"
     ]
   }
 }

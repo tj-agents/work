@@ -23,7 +23,7 @@ If the context skill or connector is unavailable, say so briefly and draft using
 
 Write a few plain sentences in Tommy's voice, with at most one supporting reason. Keep normal sentence case and his register; do not manufacture typos or polish supplied wording into corporate English.
 
-Every human chat draft, including one produced during an investigation, review explanation or implementation answer, is formatted and handed over through `cli:teams-message`. Do not append the analysis as a second deliverable.
+Every human chat draft, including one produced during an investigation, review explanation or implementation answer, is formatted and handed over through `teams:message`. Do not append the analysis as a second deliverable.
 
 ## Sending
 
