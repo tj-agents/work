@@ -6,6 +6,18 @@
   },
   "plugins": [
     {
+      "name": "teams",
+      "source": "./plugins/teams",
+      "description": "Teams message writing: clickable link text, backticked identifiers and a deterministic check before the verified clipboard copy.",
+      "category": "productivity",
+      "keywords": [
+        "teams",
+        "chat",
+        "message",
+        "clipboard"
+      ]
+    },
+    {
       "name": "work",
       "source": "./plugins/work",
       "description": "Employer-agnostic communication and review entry points for work repositories.",

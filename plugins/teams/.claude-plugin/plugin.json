@@ -1,0 +1,16 @@
+{
+  "name": "teams",
+  "displayName": "Teams messages",
+  "description": "Teams message writing: clickable link text, backticked identifiers and a deterministic check before the verified clipboard copy.",
+  "author": {
+    "name": "Tommy Seery"
+  },
+  "repository": "https://github.com/tj-agents/work",
+  "skills": "./skills/",
+  "keywords": [
+    "teams",
+    "chat",
+    "message",
+    "clipboard"
+  ]
+}
