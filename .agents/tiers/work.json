@@ -9,5 +9,5 @@
   "detect": {
     "fact": "employer"
   },
-  "session_context": "Before drafting a human message, even inside another answer, load the matching work:ask-* skill and clip the draft."
+  "session_context": "Before drafting a human message, even inside another answer, load the matching work:ask-* skill and hand the draft over with teams:message."
 }

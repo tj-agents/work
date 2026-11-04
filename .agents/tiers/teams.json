@@ -1,0 +1,9 @@
+{
+  "schema_version": 3,
+  "tier": "teams",
+  "stack": "any project",
+  "applies": "always",
+  "owner_repository": [
+    "tj-agents/work"
+  ]
+}

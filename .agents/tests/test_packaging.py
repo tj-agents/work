@@ -14,6 +14,7 @@ DEPENDENCIES = {
     "tj-agents/machine",
     "tj-agents/engineering",
     "tj-agents/docs",
+    "teams",
 }
 
 ENGINEERING_SKILLS = {
@@ -42,7 +43,8 @@ class PackagingTests(unittest.TestCase):
         self.assertEqual(set(selection["dependencies"]), DEPENDENCIES)
         harness = load("plugins/work/harness.json")
         self.assertEqual(harness["plugin"], "tj-agents/work")
-        self.assertEqual(set(harness["requires"]["plugins"]), DEPENDENCIES | {"tj-agents/work"})
+        qualified = {name if "/" in name else f"tj-agents/{name}" for name in DEPENDENCIES}
+        self.assertEqual(set(harness["requires"]["plugins"]), qualified | {"tj-agents/work"})
         marketplaces = {item["id"]: item["repository"] for item in harness["requires"]["marketplaces"]}
         self.assertEqual(
             marketplaces,
@@ -88,13 +90,16 @@ class PackagingTests(unittest.TestCase):
         self.assertEqual(set(authored), EXPECTED_SKILLS)
         for output in ("plugins/work/skills", ".claude/skills", ".codex/skills"):
             directory = ROOT / output
-            generated = list(directory.rglob("SKILL.md"))
-            self.assertEqual(len(generated), len(EXPECTED_SKILLS))
-            for path in generated:
+            generated = {}
+            for path in directory.rglob("SKILL.md"):
                 content = path.read_text(encoding="utf-8")
-                name = re.search(r"^name: (.+)$", content, re.MULTILINE).group(1)
                 target = re.search(r"canonical definition\]\(([^)]+)\)", content).group(1)
-                self.assertEqual((path.parent / target).resolve().read_text(encoding="utf-8"), authored[name])
+                canonical = (path.parent / target).resolve()
+                if "/.agents/work/" in canonical.as_posix():
+                    generated[re.search(r"^name: (.+)$", content, re.MULTILINE).group(1)] = canonical
+            self.assertEqual(len(generated), len(EXPECTED_SKILLS), output)
+            for name, canonical in generated.items():
+                self.assertEqual(canonical.read_text(encoding="utf-8"), authored[name])
 
     def test_payload_contains_no_employer_routes_or_provider_commands(self):
         for path in (ROOT / "plugins/work").rglob("*"):
@@ -114,6 +119,9 @@ class PackagingTests(unittest.TestCase):
                 elif namespace == "engineering":
                     self.assertIn(name, ENGINEERING_SKILLS, str(path))
                     self.assertIn("tj-agents/engineering", load("plugins/work/selection.json")["dependencies"])
+                elif namespace == "teams":
+                    self.assertEqual(name, "message", str(path))
+                    self.assertIn("teams", load("plugins/work/selection.json")["dependencies"])
                 else:
                     self.assertEqual((namespace, name), ("machine", "clip"), str(path))
                     self.assertIn("tj-agents/machine", load("plugins/work/selection.json")["dependencies"])

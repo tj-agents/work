@@ -5,6 +5,18 @@
   },
   "plugins": [
     {
+      "name": "teams",
+      "source": {
+        "source": "local",
+        "path": "./plugins/teams"
+      },
+      "policy": {
+        "installation": "INSTALLED_BY_DEFAULT",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "productivity"
+    },
+    {
       "name": "work",
       "source": {
         "source": "local",
