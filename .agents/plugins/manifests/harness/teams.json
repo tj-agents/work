@@ -12,8 +12,7 @@
       }
     ],
     "plugins": [
-      "tj-agents/teams",
-      "tj-agents/cli"
+      "tj-agents/teams"
     ],
     "hooks": [],
     "permissions": {

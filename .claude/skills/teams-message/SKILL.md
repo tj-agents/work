@@ -1,11 +1,11 @@
 ---
 name: message
-description: Write a Teams or chat message Tommy will paste, check it with a deterministic script and copy it through cli:clip. Use for any Teams message, status update, ready-for-review note or reply he will send, in every repo, including every work:ask draft and a message embedded in another answer.
+description: Check, render and copy a Teams or chat message Tommy will paste, with one deterministic script that turns markdown links into named link text, backticks into inline code and fences into code blocks, and verifies the clipboard. Use for any Teams message, status update, ready-for-review note or reply he will send, in every repo, including every work:ask draft and a message embedded in another answer.
 kind: utility
 domain: work
 profile: core
 applicability: all projects
-requires: python, cli:clip
+requires: python
 provenance: house
 ---
 

@@ -14,9 +14,6 @@
       "tj-agents/engineering",
       "tj-agents/docs",
       "teams"
-    ],
-    "teams": [
-      "tj-agents/cli"
     ]
   }
 }

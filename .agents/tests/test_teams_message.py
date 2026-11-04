@@ -5,6 +5,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[2]
 SCRIPT = ROOT / ".agents/teams/utility/message/scripts/teams_message.py"
@@ -68,6 +69,10 @@ class MainTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
+        copy = "copy_windows" if TEAMS_MESSAGE.IS_WINDOWS else "copy_posix"
+        patcher = mock.patch.object(TEAMS_MESSAGE, copy, return_value="Copied 35 chars, 0 code spans, 1 links.")
+        self.copy = patcher.start()
+        self.addCleanup(patcher.stop)
 
     def run_main(self, text):
         path = Path(self.temp.name) / "draft.md"
@@ -77,20 +82,30 @@ class MainTests(unittest.TestCase):
             code = TEAMS_MESSAGE.main(["--path", str(path)])
         return code, stdout.getvalue(), stderr.getvalue()
 
-    def test_a_clean_draft_passes_with_its_character_count(self):
-        self.assertEqual(self.run_main("see [the page](https://example.com)\r\n"), (0, "Teams message OK (35 chars).\n", ""))
+    def test_a_clean_draft_is_copied_once_and_the_copy_result_is_reported(self):
+        result = self.run_main("see [the page](https://example.com)\r\n")
+        self.assertEqual(result, (0, "Copied 35 chars, 0 code spans, 1 links.\n", ""))
+        self.copy.assert_called_once_with("see [the page](https://example.com)")
 
-    def test_a_broken_draft_fails_naming_each_line(self):
+    def test_a_broken_draft_never_reaches_the_clipboard(self):
         code, stdout, stderr = self.run_main("hi\nsee https://example.com")
         self.assertEqual((code, stdout), (1, ""))
         self.assertIn("draft.md:2: raw URL", stderr)
+        self.copy.assert_not_called()
+
+    def test_a_failed_copy_is_reported_and_exits_non_zero(self):
+        self.copy.side_effect = TEAMS_MESSAGE.ClipboardError("Clipboard verification failed: links did not round-trip.")
+        self.assertEqual(
+            self.run_main("see [the page](https://example.com)"),
+            (1, "", "Clipboard verification failed: links did not round-trip.\n"),
+        )
 
     def test_a_missing_draft_fails(self):
         stderr = io.StringIO()
         with contextlib.redirect_stderr(stderr):
             code = TEAMS_MESSAGE.main(["--path", str(Path(self.temp.name) / "missing.md")])
         self.assertEqual(code, 1)
-        self.assertIn("Cannot read draft", stderr.getvalue())
+        self.assertIn("Draft file not found", stderr.getvalue())
 
 
 if __name__ == "__main__":

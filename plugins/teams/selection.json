@@ -1,8 +1,6 @@
 {
   "plugin": "teams",
-  "dependencies": [
-    "tj-agents/cli"
-  ],
+  "dependencies": [],
   "profiles": {
     "core": [
       "message"
@@ -18,8 +16,7 @@
         "all projects"
       ],
       "requires": [
-        "python",
-        "cli:clip"
+        "python"
       ],
       "provenance": [
         "house"
