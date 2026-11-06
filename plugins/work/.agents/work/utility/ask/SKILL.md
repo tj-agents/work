@@ -21,9 +21,9 @@ If the context skill or connector is unavailable, say so briefly and draft using
 
 ## Voice and handover
 
-Write a few plain sentences in Tommy's voice, with at most one supporting reason. Keep normal sentence case and his register; do not manufacture typos or polish supplied wording into corporate English.
+Get to the point: the question or update first, then only what the reader needs to act on it. No waffle, restating or sign-off. Write like a person: plain words, short paragraphs separated by blank lines, never one dense block. When Tommy supplies wording, keep it and change only what is wrong.
 
-Lead with what the reader needs. Give each page, PR or ticket its own link named after it, such as `[AuthZ design](https://...) and [Worker rollout](https://...)`, never one link for several or a vague `here`. Backtick only identifiers that exist; never invent one for an example.
+Quote the exact line when the point turns on what something says. Link each page, PR or ticket inline where it is named, never one link for several or a vague `here`. Backtick only identifiers that exist; never invent one for an example.
 
 Every human chat draft, including one produced during an investigation, review explanation or implementation answer, is formatted and handed over through `teams:message`. Do not append the analysis as a second deliverable.
 
