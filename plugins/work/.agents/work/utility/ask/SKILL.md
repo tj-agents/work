@@ -25,14 +25,6 @@ Get to the point: the question or update first, then only what the reader needs 
 
 Quote the exact line when the point turns on what something says. Link each page, PR or ticket inline where it is named, never one link for several or a vague `here`. Backtick only identifiers that exist; never invent one for an example.
 
-```text
-Hey, can I get some clarity on the `user_link` order? On the call we said removing `user_link` should happen before the migration, but the [target architecture page](https://...) §7 says the opposite: drop `user_link` only after the backfill is done in every estate.
-
-Which one are we going with, and if it's before, how do existing users keep their roles until the backfill runs?
-
-I'm a bit confused as Kate said things like this should go post go-live, but to me it makes sense to do it beforehand.
-```
-
 Every human chat draft, including one produced during an investigation, review explanation or implementation answer, is formatted and handed over through `teams:message`. Do not append the analysis as a second deliverable.
 
 ## Sending
