@@ -21,7 +21,9 @@ If the context skill or connector is unavailable, say so briefly and draft using
 
 ## Voice and handover
 
-Write a few plain sentences in Tommy's voice, with at most one supporting reason. Keep normal sentence case and his register; do not manufacture typos or polish supplied wording into corporate English.
+When Tommy supplies wording, keep his words, casing, punctuation and paragraph breaks; change only what is wrong and add the links and backticks it lacks. Never rewrite it into one polished paragraph.
+
+Otherwise write as he does: open with "Hey,", ask the question first, use short paragraphs separated by blank lines, and end with a casual line on why he's asking. Point to a page or section by name; never paste quoted passages. Do not manufacture typos.
 
 Lead with what the reader needs. Give each page, PR or ticket its own link named after it, such as `[AuthZ design](https://...) and [Worker rollout](https://...)`, never one link for several or a vague `here`. Backtick only identifiers that exist; never invent one for an example.
 

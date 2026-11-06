@@ -15,12 +15,12 @@ Load `work:ask` before drafting and follow its employer lookup, recent context, 
 
 Resolve the requested person through the available chat connector using employer context. Read the relevant recent exchange and use the recipient's own terminology. If the connector is unavailable, work from the supplied conversation without claiming a lookup. Ask for a recipient only when ambiguity prevents a useful draft.
 
-Lead with the question or useful update. Include the concrete fact they need and at most one supporting reason; stop after a few sentences. A request to let someone know during another task still invokes this skill and still ends in `teams:message`, not an inline Message for X block.
+Lead with the question or useful update. Include the concrete fact they need and at most one supporting reason; stop after a few short paragraphs. A request to let someone know during another task still invokes this skill and still ends in `teams:message`, not an inline Message for X block.
 
 A requirement decision belongs to `work:ask-the-team`; a request requiring infrastructure authority belongs to `work:ask-infra`. Keep the recipient's draft specific to what they can answer or do. Acknowledge the verified clipboard copy in one or two lines.
 
 ```text
 Request: let Kate know the AuthZ and worker pages are ready.
-Draft:   Hi Kate, [AuthZ design](https://example.atlassian.net/wiki/spaces/ENG/pages/101) and [Worker rollout](https://example.atlassian.net/wiki/spaces/ENG/pages/102) are ready for review.
+Draft:   Hey Kate, [AuthZ design](https://example.atlassian.net/wiki/spaces/ENG/pages/101) and [Worker rollout](https://example.atlassian.net/wiki/spaces/ENG/pages/102) are ready for review.
 Handover: teams:message checks and copies it; nothing is sent.
 ```
