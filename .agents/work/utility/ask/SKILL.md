@@ -21,11 +21,17 @@ If the context skill or connector is unavailable, say so briefly and draft using
 
 ## Voice and handover
 
-When Tommy supplies wording, keep his words, casing, punctuation and paragraph breaks; change only what is wrong and add the links and backticks it lacks. Never rewrite it into one polished paragraph.
+Get to the point: the question or update first, then only what the reader needs to act on it. No waffle, restating or sign-off. Write like a person: plain words, short paragraphs separated by blank lines, never one dense block. When Tommy supplies wording, keep it and change only what is wrong.
 
-Otherwise write as he does: open with "Hey,", ask the question first, use short paragraphs separated by blank lines, and end with a casual line on why he's asking. Point to a page or section by name; never paste quoted passages. Do not manufacture typos.
+Quote the exact line when the point turns on what something says. Link each page, PR or ticket inline where it is named, never one link for several or a vague `here`. Backtick only identifiers that exist; never invent one for an example.
 
-Lead with what the reader needs. Give each page, PR or ticket its own link named after it, such as `[AuthZ design](https://...) and [Worker rollout](https://...)`, never one link for several or a vague `here`. Backtick only identifiers that exist; never invent one for an example.
+```text
+Hey, can I get some clarity on the `user_link` order? On the call we said removing `user_link` should happen before the migration, but the [target architecture page](https://...) §7 says the opposite: drop `user_link` only after the backfill is done in every estate.
+
+Which one are we going with, and if it's before, how do existing users keep their roles until the backfill runs?
+
+I'm a bit confused as Kate said things like this should go post go-live, but to me it makes sense to do it beforehand.
+```
 
 Every human chat draft, including one produced during an investigation, review explanation or implementation answer, is formatted and handed over through `teams:message`. Do not append the analysis as a second deliverable.
 
