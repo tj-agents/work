@@ -1,9 +1,18 @@
 # Work
 
-Work is an employer-neutral work profile. This tooling repository, its primary checkout and every
-worktree are work scope. Never select, require or inject `personal@tj-agents` or its generated policy
-here. GitHub owner, publisher identity and checkout location do not establish personal-project scope.
-Employer plugins own tracker choice and employer authorization; Work does not route records to Personal.
+Work is employer-neutral standards and generic assistance for Tommy to use at work. It is designed for
+local, Git-ignored injection into projects at whichever company he works for. Employer plugins supply
+company-specific tracker routes, context and authorization. Infonetica is the current employer-specific
+layer, not a requirement for future Work use. Learning is a separate optional overlay, such as when
+learning a new language.
+
+## Authoring this repository
+
+This `tj-agents/work` source repository and its worktrees are Tommy's explicitly designated personal
+tooling projects, so they adopt `personal@tj-agents` for authoring. That source designation does not
+travel with the published Work profile: an actual employer project consuming Work through local,
+Git-ignored configuration remains non-Personal and must not select or inject Personal. See
+[AGENTS.md](AGENTS.md) for the canonical authoring-scope policy.
 
 Employer-agnostic communication and review entry points for work repositories. Authored
 skills live in `.agents/work`; Template generates the Claude and Codex payloads from that source.
