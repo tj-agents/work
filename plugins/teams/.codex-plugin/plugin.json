@@ -20,5 +20,6 @@
     "category": "productivity",
     "capabilities": [],
     "defaultPrompt": "Draft a Teams message and copy it to my clipboard."
-  }
+  },
+  "version": "d5408a63ec83"
 }
