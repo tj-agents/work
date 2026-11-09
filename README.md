@@ -1,10 +1,12 @@
 # Work
 
-Work is employer-neutral standards and generic assistance for Tommy to use at work. It is designed for
-local, Git-ignored injection into projects at whichever company he works for. Employer plugins supply
-company-specific tracker routes, context and authorization. Infonetica is the current employer-specific
-layer, not a requirement for future Work use. Learning is a separate optional overlay, such as when
-learning a new language.
+Work is employer-neutral standards and generic assistance for Tommy to use at work. In the TJ Agents
+profile model, a work project resolves `work` to the current employer profile — today `infonetica` — whose
+plugin supplies the tracker route, context and authorization; a future employer is a new profile, not a
+change to this one. Work itself is designed for local, Git-ignored injection into projects at whichever
+company he works for, and never carries anything employer-specific, personal-only automation (Renovate,
+the bot App, personal policy) or Infonetica particulars. Learning is a separate optional overlay, such as
+when learning a new language.
 
 ## Authoring this repository
 
@@ -29,7 +31,7 @@ The ask workflows were restored from recovered skill loads and feedback memories
 
 Install only for work repositories through the employer plugin's repository-local installation procedure.
 Enable `tj-agents/work`, `tj-agents/base`,
-`tj-agents/engineering` and `tj-agents/machine` together. Do not enable this plugin at user scope.
+`tj-agents/engineering` and `tj-agents/cli` together. Do not enable this plugin at user scope.
 Its version 3 tier requires the reserved `employer` fact established by employer detection.
 
 After authored changes, run `pwsh .agents/sync-generated.ps1`, `pwsh .agents/sync-generated.ps1 -Check`, and `template:check`. Run `python -B .agents/tests/test_packaging.py` for packaging isolation and dependency checks.
