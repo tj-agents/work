@@ -1,6 +1,6 @@
 ---
 name: message
-description: Check, render and copy a Teams or chat message Tommy will paste, with one deterministic script that turns markdown links into named link text, backticks into inline code and fences into code blocks, and verifies the clipboard. Use for any Teams message, status update, ready-for-review note or reply he will send, in every repo, including every work:ask draft and a message embedded in another answer.
+description: Use when Tommy will paste a Teams or chat draft to check its formatting, render links and code, and verify the clipboard copy.
 kind: utility
 domain: work
 profile: core
