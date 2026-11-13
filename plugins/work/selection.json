@@ -10,9 +10,6 @@
   "profiles": {
     "core": [
       "ask",
-      "ask-infra",
-      "ask-person",
-      "ask-the-team",
       "confluence",
       "draft-comment",
       "respond-comments"
@@ -22,51 +19,6 @@
   "skills": [
     {
       "name": "ask",
-      "kind": "utility",
-      "profile": "core",
-      "applicability": [
-        "work repositories"
-      ],
-      "requires": [
-        "employer context",
-        "available connectors"
-      ],
-      "provenance": [
-        "house"
-      ]
-    },
-    {
-      "name": "ask-infra",
-      "kind": "utility",
-      "profile": "core",
-      "applicability": [
-        "work repositories"
-      ],
-      "requires": [
-        "employer context",
-        "available connectors"
-      ],
-      "provenance": [
-        "house"
-      ]
-    },
-    {
-      "name": "ask-person",
-      "kind": "utility",
-      "profile": "core",
-      "applicability": [
-        "work repositories"
-      ],
-      "requires": [
-        "employer context",
-        "available connectors"
-      ],
-      "provenance": [
-        "house"
-      ]
-    },
-    {
-      "name": "ask-the-team",
       "kind": "utility",
       "profile": "core",
       "applicability": [
