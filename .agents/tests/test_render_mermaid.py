@@ -61,7 +61,7 @@ class RenderMermaidTests(unittest.TestCase):
     def render(self, text, sample=LIST_SAMPLE):
         return render_mermaid.render(text, render_mermaid.read_sample(sample), self.diagrams)
 
-    def test_cli_copies_the_sample_shape_with_new_body_date_and_id(self):
+    def test_cli_copies_the_sample_shape_with_new_body_and_date(self):
         self.diagram("auth-flow", 'flowchart LR\n  a["it\'s A & B"] --> b\n')
         page = self.root / "page.html"
         sample = self.root / "sample.html"
@@ -77,7 +77,7 @@ class RenderMermaidTests(unittest.TestCase):
                          ("example-mermaid", "example.type", "wide"))
         params = params_of(element)
         self.assertEqual(params["macroParams"]["theme"], {"value": "dark"})
-        self.assertNotEqual(params["macroMetadata"]["macroId"]["value"], "old-id")
+        self.assertNotIn("macroId", params["macroMetadata"])
         [entry] = json.loads(params["macroParams"]["__bodyContent"]["value"])
         self.assertEqual(entry["body"], 'flowchart LR\r\n  a["it\'s A & B"] --> b')
         self.assertGreater(entry["date"], 1)
@@ -107,11 +107,11 @@ class RenderMermaidTests(unittest.TestCase):
         [element] = parse(self.render("{{D1}}", sample_element("null")))
         self.assertEqual(params_of(element)["macroParams"]["__bodyContent"]["value"], "flowchart TD\n  x --> y")
 
-    def test_every_macro_gets_a_fresh_id_and_drops_instance_ids(self):
+    def test_no_macro_carries_an_id_and_instance_ids_are_dropped(self):
         self.diagram("D1", "flowchart LR\n  a --> b")
         sample = sample_element(json.dumps([{"body": "old"}]), extra='data-local-id="abc" hidden ')
         elements = parse(self.render("{{D1}}\n{{D1}}", sample)) + parse(self.render("{{D1}}", sample))
-        self.assertEqual(len({params_of(e)["macroMetadata"]["macroId"]["value"] for e in elements}), 3)
+        self.assertTrue(all("macroId" not in params_of(e).get("macroMetadata", {}) for e in elements))
         for element in elements:
             self.assertNotIn("data-local-id", element)
             self.assertIn("hidden", element)

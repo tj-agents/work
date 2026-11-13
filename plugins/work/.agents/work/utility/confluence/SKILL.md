@@ -1,6 +1,6 @@
 ---
 name: confluence
-description: Write or update a Confluence page through the Atlassian connector — HTML body, native panels and layouts, Mermaid diagrams readable in light and dark mode, and checking the stored and rendered result. Use when creating, editing or fixing a Confluence page or a diagram on one.
+description: Write or update a Confluence page through the Atlassian connector — HTML body, native panels and layouts, every reference as a link, code snippets, Mermaid diagrams readable in light and dark mode whose `macroId` Confluence creates, and checking the stored and rendered result. Use when creating, editing or fixing a Confluence page or a diagram on one.
 kind: utility
 domain: work
 profile: core
@@ -18,7 +18,7 @@ Load `docs:layout` and `docs:diagram` before writing, and `work:design` for an a
 Write straight into a page the user owns or was assigned. Confluence keeps every version, so the write is
 reversible: no local draft, and no "should I publish?". Ask first only for someone else's page that nobody
 assigned. That covers content only: changing a page's type (live doc to page), location, access or watchers
-needs an explicit ask. Live docs have no section jumps, so name a section in plain text.
+needs an explicit ask.
 
 ## HTML, never markdown
 
@@ -42,6 +42,40 @@ These are Confluence's native pieces for `docs:layout`.
 | Task list | prerequisites; open questions with owners |
 | Table of contents macro | a page with more than a few sections |
 
+A status lozenge goes on the line under a heading, never in it, because it changes the heading's link
+target. Label and value rows take a header first column, never an empty header row.
+
+## Code on a page
+
+Open each snippet with one comment saying what it does and its file, marked `TODAY:` for existing code or
+`SKETCH:` for code nobody has written. No line-by-line comments. Put a status lozenge on the line above each
+code block saying whose it is and whether it exists. A panel around a code block shows no colour, because
+the block paints its own background, and `diff` drops the syntax colours.
+
+```python
+# TODAY: replaces each {{NAME}} line with the site's Mermaid macro (confluence/render_mermaid.py)
+return PLACEHOLDER.sub(replace, text)
+
+# SKETCH: rejects a sample macro that carries no body (confluence/render_mermaid.py)
+if "__bodyContent" not in params["macroParams"]:
+    raise SystemExit("sample: macro has no body")
+```
+
+## Every reference is a link
+
+A reference a reader could follow is a link, never bare text. "See X", "risk 2" or "Q3" links to that
+section with `<a href="#Heading-text">`, using the heading's exact text with spaces as hyphens. A work item,
+PR, ticket or page links to its URL. Open each URL once to confirm it resolves before writing it.
+
+```html
+<h2>Open risks</h2>
+<p>See <a href="#Open-risks">Open risks</a>; tracked in <a href="https://example.atlassian.net/browse/ABC-12">ABC-12</a>.</p>
+```
+
+On a live doc, section links don't jump, because it is always an editor and its headings have no ids. Never
+change a page's type, location or settings to work around this without asking: a live doc is chosen for its
+live editing.
+
 ## Diagrams through the site's macro
 
 Follow the organisation's diagram standard where it has one. For Mermaid, read a page that already shows a
@@ -52,9 +86,11 @@ own line where `diagrams/NAME.mmd` goes, and render with this skill's script:
 python -B <this skill's directory>/render_mermaid.py page.html sample.html out.html
 ```
 
-Each macro copies the sample's shape, with the diagram as its body, a fresh `macroId` and, where the sample
-has one, a fresh `date`. The app caches its drawing by `macroId`, so new source under an old id keeps showing
-the old diagram: re-render before every write and never reuse the output.
+Each macro copies the sample's shape, with the diagram as its body, a fresh `date` where the sample has one,
+and no `macroId`. Never set a `macroId`: Confluence must create it, and a diagram under an id you made up
+renders as an empty box. A rewrite keeps each existing macro's id, and the app caches its drawing by that id,
+so changed source can keep showing the old diagram. To force a redraw, write the page once without the
+diagram, then again with it, so Confluence creates a new id.
 
 ## Dark mode
 
@@ -72,5 +108,6 @@ change or remove an existing one in the editor, never by another API write.
 
 After every write, re-read the page in `html` and confirm the version advanced and still carries the change.
 Then look at the rendered page, through browser automation or by asking the user, before saying a layout,
-diagram or colour fix works. The stored source does not prove what renders. On a live page the API read
-cannot see duplicates, so count the macros in the editor's DOM.
+diagram or colour fix works. The stored source does not prove what renders: an empty or zero-height diagram
+block has failed. On a live page the API read cannot see duplicates, so count the macros in the editor's DOM.
+If you could not see it, say so.

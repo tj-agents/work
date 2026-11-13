@@ -1,6 +1,6 @@
 ---
 name: confluence
-description: Write or update a Confluence page through the Atlassian connector — HTML body, native panels and layouts, Mermaid diagrams readable in light and dark mode, and checking the stored and rendered result. Use when creating, editing or fixing a Confluence page or a diagram on one.
+description: Write or update a Confluence page through the Atlassian connector — HTML body, native panels and layouts, every reference as a link, code snippets, Mermaid diagrams readable in light and dark mode whose `macroId` Confluence creates, and checking the stored and rendered result. Use when creating, editing or fixing a Confluence page or a diagram on one.
 kind: utility
 domain: work
 profile: core
