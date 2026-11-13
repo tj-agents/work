@@ -1,7 +1,7 @@
 ---
 name: pr-screenshots
 description: Real screenshots for a work PR that changes UI - capture the running app after a real login, fix fresh-checkout setup gaps without touching shared state, and attach images inline.
-kind: contract
+kind: utility
 domain: work
 profile: core
 applicability: work repositories
@@ -11,5 +11,5 @@ provenance: house
 
 # Screenshots on a UI PR
 
-Read and follow the [canonical definition](../../../.agents/work/contract/pr-screenshots/SKILL.md) in full.
+Read and follow the [canonical definition](../../../.agents/work/utility/pr-screenshots/SKILL.md) in full.
 This discovery entry is generated; edit the referenced `.agents/` definition.

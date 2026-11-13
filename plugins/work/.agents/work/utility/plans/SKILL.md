@@ -1,7 +1,7 @@
 ---
 name: plans
 description: Roadmap, plan and progress-ledger files for multi-PR work goals - shape, ledger fields, checkpoints, delivery states, cross-plan blockers, reconciling a change and close-out.
-kind: convention
+kind: utility
 domain: work
 profile: core
 applicability: work repositories

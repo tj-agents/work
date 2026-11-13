@@ -101,7 +101,7 @@
     },
     {
       "name": "delivery",
-      "kind": "policy",
+      "kind": "utility",
       "profile": "core",
       "applicability": [
         "work repositories"
@@ -116,7 +116,7 @@
     },
     {
       "name": "design",
-      "kind": "convention",
+      "kind": "utility",
       "profile": "core",
       "applicability": [
         "work repositories"
@@ -145,7 +145,7 @@
     },
     {
       "name": "plans",
-      "kind": "convention",
+      "kind": "utility",
       "profile": "core",
       "applicability": [
         "work repositories"
@@ -159,7 +159,7 @@
     },
     {
       "name": "pr-screenshots",
-      "kind": "contract",
+      "kind": "utility",
       "profile": "core",
       "applicability": [
         "work repositories"
@@ -189,7 +189,7 @@
     },
     {
       "name": "review",
-      "kind": "convention",
+      "kind": "utility",
       "profile": "core",
       "applicability": [
         "work repositories"

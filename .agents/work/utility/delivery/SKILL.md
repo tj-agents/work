@@ -1,7 +1,7 @@
 ---
 name: delivery
 description: How work-project changes become human-reviewable PRs - slice size and splits, dependent stacks, draft then ready, merge queue and E2E tier, publish follow-up, debt PRs and employer records.
-kind: policy
+kind: utility
 domain: work
 profile: core
 applicability: work repositories

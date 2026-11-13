@@ -1,7 +1,7 @@
 ---
 name: pr-screenshots
 description: Real screenshots for a work PR that changes UI - capture the running app after a real login, fix fresh-checkout setup gaps without touching shared state, and attach images inline.
-kind: contract
+kind: utility
 domain: work
 profile: core
 applicability: work repositories

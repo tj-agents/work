@@ -21,7 +21,7 @@ Change them in Template, then run `template:update` to refresh them.
 `pwsh .agents/sync-generated.ps1` after authored changes and require `pwsh .agents/sync-generated.ps1 -Check`
 before delivery.
 
-Skills use the `utility`, `policy`, `convention` and `contract` kinds. Scripts and templates sit beside their `SKILL.md`.
+Every skill here is a `utility`. Its scripts and templates sit beside its `SKILL.md`.
 
 <!-- BEGIN personal:rules sha256:c4f6a57dde7e906bd13bad312f0042408f0c01ce0c9855968d7b7fa3907b5dc8 -->
 # Personal rules
