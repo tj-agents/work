@@ -172,8 +172,8 @@ class FencedBlockTests(unittest.TestCase):
 
 class BuildPlainTextTests(unittest.TestCase):
     def test_links_are_reduced_to_their_text_so_no_url_reaches_the_plain_flavour(self):
-        text = 'see [AuthZ design](https://example.com/101) and [`cris-authz` worker](https://example.com/102)'
-        self.assertEqual(COPY_DRAFT.build_plain_text(text), 'see AuthZ design and cris-authz worker')
+        text = 'see [AuthZ design](https://example.com/101) and [`example-service` worker](https://example.com/102)'
+        self.assertEqual(COPY_DRAFT.build_plain_text(text), 'see AuthZ design and example-service worker')
 
 
 class BuildFullHtmlTests(unittest.TestCase):
