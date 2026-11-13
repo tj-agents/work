@@ -14,8 +14,13 @@
       "ask-person",
       "ask-the-team",
       "confluence",
+      "delivery",
+      "design",
       "draft-comment",
-      "respond-comments"
+      "plans",
+      "pr-screenshots",
+      "respond-comments",
+      "review"
     ]
   },
   "compatibilitySkillAliases": {},
@@ -95,6 +100,35 @@
       ]
     },
     {
+      "name": "delivery",
+      "kind": "utility",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "employer context",
+        "GitHub CLI"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
+    {
+      "name": "design",
+      "kind": "utility",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "employer context"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
+    {
       "name": "draft-comment",
       "kind": "utility",
       "profile": "core",
@@ -110,6 +144,35 @@
       ]
     },
     {
+      "name": "plans",
+      "kind": "utility",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "employer context"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
+    {
+      "name": "pr-screenshots",
+      "kind": "utility",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "employer context",
+        "GitHub CLI"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
+    {
       "name": "respond-comments",
       "kind": "utility",
       "profile": "core",
@@ -119,6 +182,20 @@
       "requires": [
         "employer context",
         "available connectors"
+      ],
+      "provenance": [
+        "house"
+      ]
+    },
+    {
+      "name": "review",
+      "kind": "utility",
+      "profile": "core",
+      "applicability": [
+        "work repositories"
+      ],
+      "requires": [
+        "employer context"
       ],
       "provenance": [
         "house"

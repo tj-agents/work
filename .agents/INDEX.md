@@ -13,5 +13,10 @@ Generated from `.agents/<plugin>/<kind>/<family>/<member>/SKILL.md`; a skill's n
 - `ask-person` — utility — core — `.agents/work/utility/ask/person/SKILL.md`
 - `ask-the-team` — utility — core — `.agents/work/utility/ask/the-team/SKILL.md`
 - `confluence` — utility — core — `.agents/work/utility/confluence/SKILL.md`
+- `delivery` — utility — core — `.agents/work/utility/delivery/SKILL.md`
+- `design` — utility — core — `.agents/work/utility/design/SKILL.md`
 - `draft-comment` — utility — core — `.agents/work/utility/draft-comment/SKILL.md`
+- `plans` — utility — core — `.agents/work/utility/plans/SKILL.md`
+- `pr-screenshots` — utility — core — `.agents/work/utility/pr-screenshots/SKILL.md`
 - `respond-comments` — utility — core — `.agents/work/utility/respond-comments/SKILL.md`
+- `review` — utility — core — `.agents/work/utility/review/SKILL.md`
