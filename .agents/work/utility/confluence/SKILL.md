@@ -11,7 +11,7 @@ provenance: house
 
 # Write a Confluence page
 
-Load `docs:layout` and `docs:diagram` before writing, and `docs:design` for an approach page.
+Load `docs:layout` and `docs:diagram` before writing, and `work:design` for an approach page.
 
 ## Write where you were asked
 

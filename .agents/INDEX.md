@@ -8,6 +8,11 @@ Generated from `.agents/<plugin>/<kind>/<family>/<member>/SKILL.md`; a skill's n
 
 ## work
 
+- `pr-screenshots` — contract — core — `.agents/work/contract/pr-screenshots/SKILL.md`
+- `design` — convention — core — `.agents/work/convention/design/SKILL.md`
+- `plans` — convention — core — `.agents/work/convention/plans/SKILL.md`
+- `review` — convention — core — `.agents/work/convention/review/SKILL.md`
+- `delivery` — policy — core — `.agents/work/policy/delivery/SKILL.md`
 - `ask` — utility — core — `.agents/work/utility/ask/SKILL.md`
 - `ask-infra` — utility — core — `.agents/work/utility/ask/infra/SKILL.md`
 - `ask-person` — utility — core — `.agents/work/utility/ask/person/SKILL.md`
