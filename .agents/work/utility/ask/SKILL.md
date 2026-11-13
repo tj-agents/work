@@ -35,7 +35,7 @@ Draft and clip by default. Do not send through a chat connector, create a ticket
 
 Read the story and acceptance criteria, its parent and relevant siblings, available design frames, source code and repository conventions, design decisions, story discussions and git history. Render available designs when layout, copy, controls, states or flow are the question. An answer already recorded in these sources is not an ambiguity. Do not assert that an unavailable source was checked.
 
-Naming, structure, layering, test shape and other routine engineering decisions are yours to make. Ask the owning team when two reasonable people could build different observable behaviour from the remaining requirements, including a behaviour found while testing or investigating. Route behaviour, copy and scope to their owner, visual decisions to the design owner, and a genuinely open technical direction to its owner. Asking Tommy to choose is not asking the owner, and Tommy agreeing in chat does not authorize building it.
+Naming, structure, layering, test shape and other routine engineering decisions are yours to make. A defect with one correct fix, such as a malformed filename, stale documentation or leftover configuration, is yours to fix as part of the work; never list it for others to decide. Ask the owning team when two reasonable people could build different observable behaviour from the remaining requirements, including a behaviour found while testing or investigating. Route behaviour, copy and scope to their owner, visual decisions to the design owner, and a genuinely open technical direction to its owner. Asking Tommy to choose is not asking the owner, and Tommy agreeing in chat does not authorize building it.
 
 When the work has a Confluence page, record the question there first as a proposal with options and trade-offs. Then lead the draft with the user-visible screen, field or action and the decision needed. Give two concrete options and a recommendation when both are genuinely open. Keep to one story per draft. If the specification never requests an addition, do not build it and invite a veto; ask whether it belongs in scope without defending a prior implementation. Never turn the ask into a report about branches or review state.
 
@@ -56,5 +56,6 @@ Review findings use `work:draft-comment`; replies on Tommy's PR use `work:respon
 "testing shows locked-out users keep grants"     -> undecided behaviour; proposal on the Confluence page, then
                                                     a draft to the owning team; the fix stays unbuilt
 "Tommy: yeah that makes sense?"                  -> not the owner's decision; still ask the owning team
+"testing finds a migration file the CLI skips"   -> one correct fix; rename it and fix the check, nothing to ask
 "let Corbin know the AKS pull is failing"        -> infrastructure blocker; capabilities checked, drafted, not sent
 ```
