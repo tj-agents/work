@@ -1,12 +1,12 @@
 # Work
 
 Work is employer-neutral standards and generic assistance for Tommy to use at work. In the TJ Agents
-profile model, a work project resolves `work` to the current employer profile — today `infonetica` — whose
-plugin supplies the tracker route, context and authorization; a future employer is a new profile, not a
-change to this one. Work itself is designed for local, Git-ignored injection into projects at whichever
-company he works for, and never carries anything employer-specific, personal-only automation (Renovate,
-the bot App, personal policy) or Infonetica particulars. Learning is a separate optional overlay, such as
-when learning a new language.
+profile model, a work project resolves `work` to the selected specific profile, such as an employer's,
+whose plugin supplies the tracker route, context and authorization; a different employer is a new
+profile, not a change to this one. Work itself is designed for local, Git-ignored injection into
+projects at whichever company he works for, and never carries anything employer-specific, personal-only
+automation (Renovate, the bot App, personal policy) or any specific profile's particulars. Learning is a
+separate optional overlay, such as when learning a new language.
 
 ## Authoring this repository
 

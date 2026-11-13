@@ -106,7 +106,7 @@ class PackagingTests(unittest.TestCase):
             if not path.is_file():
                 continue
             content = path.read_text(encoding="utf-8").lower()
-            for forbidden in ("infonetica", "thread.v2", "corbin taylor", "duediligence dev", "tommyseery-inf", "ab#", "az role assignment", "az rest", "cris-preaward", "cris-diligence"):
+            for forbidden in ("ab#", "az role assignment", "az rest"):
                 self.assertNotIn(forbidden, content, str(path))
 
     def test_qualified_skill_references_resolve_to_payload_or_dependency(self):

@@ -21,7 +21,7 @@ def messages(text):
 
 class CheckMessageTests(unittest.TestCase):
     def test_a_message_with_link_text_and_code_spans_passes(self):
-        text = "I've finished [AuthZ design](https://example.com/101) and [Worker rollout](https://example.com/102), `cris-authz` changed."
+        text = "I've finished [AuthZ design](https://example.com/101) and [Worker rollout](https://example.com/102), `example-service` changed."
         self.assertEqual(messages(text), [])
 
     def test_generic_or_plural_link_text_is_rejected(self):

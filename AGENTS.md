@@ -7,8 +7,9 @@ repository and its worktrees, as a personal tooling project; this repository the
 
 That authoring designation does not apply to employer projects that consume Work. Those projects remain
 non-Personal: do not select, require or inject Personal there. Keep the published Work profile and its
-consumer harness employer-neutral; employer plugins own tracker choice and authorization. Infonetica is
-an employer-specific consumer layer, while its source repository is likewise personal tooling.
+consumer harness employer-neutral; employer plugins own tracker choice and authorization. The selected
+specific profile, such as an employer's, is a specific consumer layer, while its source repository is
+likewise personal tooling.
 
 This repository uses the plugin layout `template:check` documents and enforces
 (https://github.com/tj-agents/template). Authored skills live once under `.agents/<plugin>/<kind>/<name>/SKILL.md`,
