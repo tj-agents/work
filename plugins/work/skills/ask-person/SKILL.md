@@ -1,6 +1,6 @@
 ---
 name: ask-person
-description: Draft a short human chat or DM to a named person. Use for tell Kate, let X know, Message for Yan, draft a message, or wording for a colleague, including inside an investigation or other answer. Always load work:ask and clip the draft with machine:clip.
+description: Draft a short human chat or DM to a named person. Use for tell Kate, let X know, Message for Yan, draft a message, or wording for a colleague, including inside an investigation or other answer. Always load work:ask; format and clip with teams:message.
 kind: utility
 domain: work
 profile: core

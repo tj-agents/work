@@ -1,10 +1,22 @@
 {
-  "name": "work-agents",
+  "name": "tj-agents",
   "description": "Employer-agnostic communication, review and work-item entry points for work repositories.",
   "owner": {
     "name": "Tommy Seery"
   },
   "plugins": [
+    {
+      "name": "teams",
+      "source": "./plugins/teams",
+      "description": "Teams message writing: clickable link text, backticked identifiers and a deterministic check before the verified clipboard copy.",
+      "category": "productivity",
+      "keywords": [
+        "teams",
+        "chat",
+        "message",
+        "clipboard"
+      ]
+    },
     {
       "name": "work",
       "source": "./plugins/work",

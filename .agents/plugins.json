@@ -6,9 +6,16 @@
     }
   },
   "plugins": [
+    "agent-store@tj-agents",
+    "agent@tj-agents",
     "base@tj-agents",
+    "cli@tj-agents",
     "engineering@tj-agents",
-    "machine@tj-agents",
-    "template@tj-agents"
+    "github-actions@tj-agents",
+    "personal@tj-agents",
+    "python@tj-agents",
+    "skill@tj-agents",
+    "template@tj-agents",
+    "workflow@tj-agents"
   ]
 }

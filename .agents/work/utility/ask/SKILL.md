@@ -21,11 +21,11 @@ If the context skill or connector is unavailable, say so briefly and draft using
 
 ## Voice and handover
 
-Write a few plain sentences in Tommy's voice, with at most one supporting reason. Keep normal sentence case and his register; do not manufacture typos or polish supplied wording into corporate English. Backtick identifiers, types, files, services, roles and flags. No headings, lists, bold, blockquotes, em dashes or wrapping code fences in the draft.
+Get to the point: the question or update first, then only what the reader needs to act on it. No waffle, restating or sign-off. Write like a person: plain words, short paragraphs separated by blank lines, never one dense block. When Tommy supplies wording, keep it and change only what is wrong.
 
-Every human chat draft goes through `machine:clip`, including one produced during an investigation, review explanation or implementation answer. Write the exact draft to a UTF-8 scratch file, load `machine:clip`, and use its file-based copy procedure. Verify the copy succeeded through its read-back result before reporting success. Preserve identifier backticks. Copy as the final handover action so a later clipboard item does not replace the message.
+Quote the exact line when the point turns on what something says. Link each page, PR or ticket inline where it is named, never one link for several or a vague `here`. Backtick only identifiers that exist; never invent one for an example.
 
-Reply in one or two lines naming the recipient or purpose and confirming the verified copy. Do not print the draft inline or append the analysis as a second deliverable. If copying fails, report that failure plainly and keep the draft file available; never claim it is on the clipboard.
+Every human chat draft, including one produced during an investigation, review explanation or implementation answer, is formatted and handed over through `teams:message`. Do not append the analysis as a second deliverable.
 
 ## Sending
 

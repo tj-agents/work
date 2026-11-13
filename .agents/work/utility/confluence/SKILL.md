@@ -11,6 +11,8 @@ provenance: house
 
 # Write a Confluence page
 
+Load `docs:layout` and `docs:diagram` before writing, and `docs:design` for an approach page.
+
 ## Write where you were asked
 
 Write straight into a page the user owns or was assigned. Confluence keeps every version, so the write is
@@ -26,6 +28,8 @@ survive a round trip.
 
 ## Use the native pieces
 
+These are Confluence's native pieces for `docs:layout`.
+
 | Piece | For |
 | --- | --- |
 | Info panel (`panel-info`) | the summary a reader can stop at |
@@ -38,14 +42,11 @@ survive a round trip.
 | Task list | prerequisites; open questions with owners |
 | Table of contents macro | a page with more than a few sections |
 
-Put parallel items in a table, not bullets of prose. Never draw ASCII art or a coloured table as a diagram.
+## Diagrams through the site's macro
 
-## Diagrams: the organisation's standard, through the site's macro
-
-Look for the organisation's diagram standard before drawing anything, and follow it. For Mermaid, read a page
-that already shows a Mermaid diagram in `html` and save exactly one of its macro elements as `sample.html`.
-Keep each diagram in `diagrams/NAME.mmd` beside the page, put `{{NAME}}` on its own line where it goes, and
-render with this skill's script:
+Follow the organisation's diagram standard where it has one. For Mermaid, read a page that already shows a
+Mermaid diagram in `html` and save exactly one of its macro elements as `sample.html`. Put `{{NAME}}` on its
+own line where `diagrams/NAME.mmd` goes, and render with this skill's script:
 
 ```powershell
 python -B <this skill's directory>/render_mermaid.py page.html sample.html out.html
@@ -55,17 +56,10 @@ Each macro copies the sample's shape, with the diagram as its body, a fresh `mac
 has one, a fresh `date`. The app caches its drawing by `macroId`, so new source under an old id keeps showing
 the old diagram: re-render before every write and never reuse the output.
 
-## Colours that work in dark mode
+## Dark mode
 
-Dark mode lightens default text, so a pastel fill with no text colour is unreadable. Colour nodes only with
-`classDef`, setting `fill`, `stroke` and `color` together, and name classes so they cannot clash with node ids.
-Pair a bold fill with white text, or a bright fill with dark text:
-
-```text
-classDef done fill:<bold fill hex>,stroke:<darker hex>,color:#FFFFFF
-```
-
-Never `style X fill:<pastel>` on its own. Leave unstyled nodes to the theme.
+Confluence's dark mode lightens default text, so a fill with no `color` is unreadable: colour as
+`docs:diagram` says.
 
 ## Live docs merge API writes
 

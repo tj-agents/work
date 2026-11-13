@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "plugin": "tj-agents/teams",
+  "source_roots": [
+    ".agents/teams"
+  ],
+  "requires": {
+    "marketplaces": [
+      {
+        "id": "tj-agents",
+        "repository": "tj-agents/marketplace"
+      }
+    ],
+    "plugins": [
+      "tj-agents/teams"
+    ],
+    "hooks": [],
+    "permissions": {
+      "claude_allow": [],
+      "codex_prefix_rules": []
+    }
+  }
+}

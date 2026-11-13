@@ -19,5 +19,6 @@
     "category": "productivity",
     "capabilities": [],
     "defaultPrompt": "Show me what work can do."
-  }
+  },
+  "version": "76efb0bfe6f4"
 }

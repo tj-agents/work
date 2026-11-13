@@ -1,0 +1,25 @@
+{
+  "name": "teams",
+  "description": "Teams message writing: clickable link text, backticked identifiers and a deterministic check before the verified clipboard copy.",
+  "author": {
+    "name": "Tommy Seery"
+  },
+  "repository": "https://github.com/tj-agents/work",
+  "skills": "./skills/",
+  "keywords": [
+    "teams",
+    "chat",
+    "message",
+    "clipboard"
+  ],
+  "interface": {
+    "displayName": "Teams messages",
+    "shortDescription": "Write and check Teams messages before copying them.",
+    "longDescription": "Teams message writing: clickable link text, backticked identifiers and a deterministic check before the verified clipboard copy.",
+    "developerName": "Tommy Seery",
+    "category": "productivity",
+    "capabilities": [],
+    "defaultPrompt": "Draft a Teams message and copy it to my clipboard."
+  },
+  "version": "1e26f215fd03"
+}
